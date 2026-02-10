@@ -4,8 +4,8 @@
 .RData
 __pycache__/
 .env
-.txt
-.tsv
-.fa.gz
-.fa
-.png
+*.txt
+*.tsv
+*.fa.gz
+*.fa
+*.png
