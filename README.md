@@ -12,7 +12,7 @@ Unified RT-qPCR primer design pipeline with junction mode, single-exon mode, seq
 ### 1.2 Python packages
 
 ```sh
-pip install requests
+pip install requests matplotlib
 ```
 
 ## 2. Quick Start

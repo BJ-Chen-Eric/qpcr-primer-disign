@@ -1,0 +1,1507 @@
+Top candidates (ranked across junctions):
+Input: user sequence
+Transcript sequence: GACGACGATGGCTGGATGGAAGAGAGCGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAACCAGCTTTGCAGATGAGTGAATGAAGCGGGAGGTAAAAGCTTCGATCTCGCACCGTCTTTGCTTGGACGAAGGGTGCTCCCTCCTCCCTCGCTCCTTGTT
+Transcript（挑選）: user_sequence
+Mode: single-exon (no junction)
+Exons in transcript: 1
+Transcript 長度: 212 bp
+
+== Rank 1 | score=-1.468 ==
+LEFT : CATTCACCCACATGCCAAGC   (cDNA=78-97, len=20, Tm=60.11)
+RIGHT: CACCCTTCGTCCAAGCAAAG  (cDNA=188-207, len=20, Tm=59.41)
+GC%  : LEFT 55.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+RIGHT dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 84.50
+Pair penalty (primer3): 0.702
+預期產物長度: 111 bp
+預期產物序列: CATTCACCCACATGCCAAGCAAACGGCCATGGAAACCAGCTTTGCAGATGAGTGAATGAAGCGGGAGGTAAAAGCTTCGATCTCGCACCGTCTTTGCTTGGACGAAGGGTG
+跨 junction 的引子: N/A
+
+
+== Rank 2 | score=-1.547 ==
+LEFT : GAGCGTCCTTCAGTCCACTC   (cDNA=24-43, len=20, Tm=60.11)
+RIGHT: ACCTCCCGCTTCATTCACTC  (cDNA=146-165, len=20, Tm=59.75)
+GC%  : LEFT 60.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+RIGHT dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 86.60
+Pair penalty (primer3): 0.360
+預期產物長度: 123 bp
+預期產物序列: GAGCGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAACCAGCTTTGCAGATGAGTGAATGAAGCGGGAGGT
+跨 junction 的引子: N/A
+
+
+== Rank 3 | score=-1.675 ==
+LEFT : GAGAGCGTCCTTCAGTCCAC   (cDNA=22-41, len=20, Tm=60.11)
+RIGHT: ACCTCCCGCTTCATTCACTC  (cDNA=146-165, len=20, Tm=59.75)
+GC%  : LEFT 60.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+RIGHT dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 86.60
+Pair penalty (primer3): 0.360
+預期產物長度: 125 bp
+預期產物序列: GAGAGCGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAACCAGCTTTGCAGATGAGTGAATGAAGCGGGAGGT
+跨 junction 的引子: N/A
+
+
+== Rank 4 | score=-1.943 ==
+LEFT : TAGCTGCCGACTCATTCACC   (cDNA=66-85, len=20, Tm=59.82)
+RIGHT: CACCCTTCGTCCAAGCAAAG  (cDNA=188-207, len=20, Tm=59.41)
+GC%  : LEFT 55.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+RIGHT dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 85.20
+Pair penalty (primer3): 0.769
+預期產物長度: 123 bp
+預期產物序列: TAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAACCAGCTTTGCAGATGAGTGAATGAAGCGGGAGGTAAAAGCTTCGATCTCGCACCGTCTTTGCTTGGACGAAGGGTG
+跨 junction 的引子: N/A
+
+
+== Rank 5 | score=-1.980 ==
+LEFT : GCGTCCTTCAGTCCACTCAG   (cDNA=26-45, len=20, Tm=60.39)
+RIGHT: ACCTCCCGCTTCATTCACTC  (cDNA=146-165, len=20, Tm=59.75)
+GC%  : LEFT 60.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+RIGHT dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 86.50
+Pair penalty (primer3): 0.640
+預期產物長度: 121 bp
+預期產物序列: GCGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAACCAGCTTTGCAGATGAGTGAATGAAGCGGGAGGT
+跨 junction 的引子: N/A
+
+
+== Rank 6 | score=-2.003 ==
+LEFT : TAGGGTCGAATTAGCTGCCG   (cDNA=55-74, len=20, Tm=59.61)
+RIGHT: TCGAAGCTTTTACCTCCCGC  (cDNA=157-176, len=20, Tm=60.39)
+GC%  : LEFT 55.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+RIGHT dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 83.30
+Pair penalty (primer3): 0.779
+預期產物長度: 103 bp
+預期產物序列: TAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAACCAGCTTTGCAGATGAGTGAATGAAGCGGGAGGTAAAAGCTTCGA
+跨 junction 的引子: N/A
+
+
+== Rank 7 | score=-2.014 ==
+LEFT : TAGGGTCGAATTAGCTGCCG   (cDNA=55-74, len=20, Tm=59.61)
+RIGHT: ACCTCCCGCTTCATTCACTC  (cDNA=146-165, len=20, Tm=59.75)
+GC%  : LEFT 55.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+RIGHT dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+PAIR  heterodimer: compl_any=0.55, compl_end=0.00
+Pair product Tm: 83.30
+Pair penalty (primer3): 0.638
+預期產物長度: 92 bp
+預期產物序列: TAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAACCAGCTTTGCAGATGAGTGAATGAAGCGGGAGGT
+跨 junction 的引子: N/A
+
+
+== Rank 8 | score=-2.026 ==
+LEFT : GCGTCCTTCAGTCCACTCAG   (cDNA=26-45, len=20, Tm=60.39)
+RIGHT: TCGAAGCTTTTACCTCCCGC  (cDNA=157-176, len=20, Tm=60.39)
+GC%  : LEFT 60.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+RIGHT dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 86.30
+Pair penalty (primer3): 0.780
+預期產物長度: 132 bp
+預期產物序列: GCGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAACCAGCTTTGCAGATGAGTGAATGAAGCGGGAGGTAAAAGCTTCGA
+跨 junction 的引子: N/A
+
+
+== Rank 9 | score=-2.266 ==
+LEFT : GAGCGTCCTTCAGTCCACTC   (cDNA=24-43, len=20, Tm=60.11)
+RIGHT: TCGAAGCTTTTACCTCCCGC  (cDNA=157-176, len=20, Tm=60.39)
+GC%  : LEFT 60.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+RIGHT dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 86.30
+Pair penalty (primer3): 0.500
+預期產物長度: 134 bp
+預期產物序列: GAGCGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAACCAGCTTTGCAGATGAGTGAATGAAGCGGGAGGTAAAAGCTTCGA
+跨 junction 的引子: N/A
+
+
+== Rank 10 | score=-2.277 ==
+LEFT : TAGCTGCCGACTCATTCACC   (cDNA=66-85, len=20, Tm=59.82)
+RIGHT: ACCTCCCGCTTCATTCACTC  (cDNA=146-165, len=20, Tm=59.75)
+GC%  : LEFT 55.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+RIGHT dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 82.80
+Pair penalty (primer3): 0.426
+預期產物長度: 81 bp
+預期產物序列: TAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAACCAGCTTTGCAGATGAGTGAATGAAGCGGGAGGT
+跨 junction 的引子: N/A
+
+
+== Rank 11 | score=-2.279 ==
+LEFT : TAGCTGCCGACTCATTCACC   (cDNA=66-85, len=20, Tm=59.82)
+RIGHT: TCGAAGCTTTTACCTCCCGC  (cDNA=157-176, len=20, Tm=60.39)
+GC%  : LEFT 55.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+RIGHT dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 82.90
+Pair penalty (primer3): 0.566
+預期產物長度: 92 bp
+預期產物序列: TAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAACCAGCTTTGCAGATGAGTGAATGAAGCGGGAGGTAAAAGCTTCGA
+跨 junction 的引子: N/A
+
+
+== Rank 12 | score=-2.393 ==
+LEFT : GAGAGCGTCCTTCAGTCCAC   (cDNA=22-41, len=20, Tm=60.11)
+RIGHT: TCGAAGCTTTTACCTCCCGC  (cDNA=157-176, len=20, Tm=60.39)
+GC%  : LEFT 60.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+RIGHT dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 86.40
+Pair penalty (primer3): 0.500
+預期產物長度: 136 bp
+預期產物序列: GAGAGCGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAACCAGCTTTGCAGATGAGTGAATGAAGCGGGAGGTAAAAGCTTCGA
+跨 junction 的引子: N/A
+
+
+== Rank 13 | score=-2.647 ==
+LEFT : CATTCACCCACATGCCAAGC   (cDNA=78-97, len=20, Tm=60.11)
+RIGHT: TCGAAGCTTTTACCTCCCGC  (cDNA=157-176, len=20, Tm=60.39)
+GC%  : LEFT 55.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+RIGHT dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 81.50
+Pair penalty (primer3): 0.499
+預期產物長度: 80 bp
+預期產物序列: CATTCACCCACATGCCAAGCAAACGGCCATGGAAACCAGCTTTGCAGATGAGTGAATGAAGCGGGAGGTAAAAGCTTCGA
+跨 junction 的引子: N/A
+
+
+== Rank 14 | score=-2.691 ==
+LEFT : ATGGCTGGATGGAAGAGAGC   (cDNA=8-27, len=20, Tm=59.53)
+RIGHT: ACCTCCCGCTTCATTCACTC  (cDNA=146-165, len=20, Tm=59.75)
+GC%  : LEFT 55.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+RIGHT dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 86.90
+Pair penalty (primer3): 0.724
+預期產物長度: 139 bp
+預期產物序列: ATGGCTGGATGGAAGAGAGCGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAACCAGCTTTGCAGATGAGTGAATGAAGCGGGAGGT
+跨 junction 的引子: N/A
+
+
+== Rank 15 | score=-2.764 ==
+LEFT : ACGATGGCTGGATGGAAGAG   (cDNA=5-24, len=20, Tm=59.53)
+RIGHT: GCTTGGCATGTGGGTGAATG  (cDNA=97-116, len=20, Tm=60.11)
+GC%  : LEFT 55.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+RIGHT dimer/hairpin: self_any=2.12, self_end=0.00, hairpin=0.00
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 85.80
+Pair penalty (primer3): 0.576
+預期產物長度: 93 bp
+預期產物序列: ACGATGGCTGGATGGAAGAGAGCGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGC
+跨 junction 的引子: N/A
+
+
+== Rank 16 | score=-2.870 ==
+LEFT : ACGATGGCTGGATGGAAGAG   (cDNA=5-24, len=20, Tm=59.53)
+RIGHT: ACCTCCCGCTTCATTCACTC  (cDNA=146-165, len=20, Tm=59.75)
+GC%  : LEFT 55.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+RIGHT dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 87.00
+Pair penalty (primer3): 0.718
+預期產物長度: 142 bp
+預期產物序列: ACGATGGCTGGATGGAAGAGAGCGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAACCAGCTTTGCAGATGAGTGAATGAAGCGGGAGGT
+跨 junction 的引子: N/A
+
+
+== Rank 17 | score=-2.967 ==
+LEFT : ATGGCTGGATGGAAGAGAGC   (cDNA=8-27, len=20, Tm=59.53)
+RIGHT: GCTTGGCATGTGGGTGAATG  (cDNA=97-116, len=20, Tm=60.11)
+GC%  : LEFT 55.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+RIGHT dimer/hairpin: self_any=2.12, self_end=0.00, hairpin=0.00
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 85.50
+Pair penalty (primer3): 0.582
+預期產物長度: 90 bp
+預期產物序列: ATGGCTGGATGGAAGAGAGCGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGC
+跨 junction 的引子: N/A
+
+
+== Rank 18 | score=-3.010 ==
+LEFT : GCTGGATGGAAGAGAGCGTC   (cDNA=11-30, len=20, Tm=60.53)
+RIGHT: GCTTGGCATGTGGGTGAATG  (cDNA=97-116, len=20, Tm=60.11)
+GC%  : LEFT 60.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+RIGHT dimer/hairpin: self_any=2.12, self_end=0.00, hairpin=0.00
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 85.60
+Pair penalty (primer3): 0.638
+預期產物長度: 87 bp
+預期產物序列: GCTGGATGGAAGAGAGCGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGC
+跨 junction 的引子: N/A
+
+
+== Rank 19 | score=-3.217 ==
+LEFT : GCTGGATGGAAGAGAGCGTC   (cDNA=11-30, len=20, Tm=60.53)
+RIGHT: ACCTCCCGCTTCATTCACTC  (cDNA=146-165, len=20, Tm=59.75)
+GC%  : LEFT 60.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+RIGHT dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 87.00
+Pair penalty (primer3): 0.780
+預期產物長度: 136 bp
+預期產物序列: GCTGGATGGAAGAGAGCGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAACCAGCTTTGCAGATGAGTGAATGAAGCGGGAGGT
+跨 junction 的引子: N/A
+
+
+== Rank 20 | score=-4.198 ==
+LEFT : CGTCCTTCAGTCCACTCAGG   (cDNA=27-46, len=20, Tm=59.76)
+RIGHT: ACCTCCCGCTTCATTCACTC  (cDNA=146-165, len=20, Tm=59.75)
+GC%  : LEFT 60.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=39.47
+RIGHT dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 86.40
+Pair penalty (primer3): 0.496
+預期產物長度: 120 bp
+預期產物序列: CGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAACCAGCTTTGCAGATGAGTGAATGAAGCGGGAGGT
+跨 junction 的引子: N/A
+
+
+== Rank 21 | score=-4.904 ==
+LEFT : GAGCGTCCTTCAGTCCACTC   (cDNA=24-43, len=20, Tm=60.11)
+RIGHT: CACCCTTCGTCCAAGCAAAG  (cDNA=188-207, len=20, Tm=59.41)
+GC%  : LEFT 60.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+RIGHT dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 87.40
+Pair penalty (primer3): 0.702
+預期產物長度: 165 bp
+預期產物序列: GAGCGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAACCAGCTTTGCAGATGAGTGAATGAAGCGGGAGGTAAAAGCTTCGATCTCGCACCGTCTTTGCTTGGACGAAGGGTG
+跨 junction 的引子: N/A
+
+
+== Rank 22 | score=-5.031 ==
+LEFT : GAGAGCGTCCTTCAGTCCAC   (cDNA=22-41, len=20, Tm=60.11)
+RIGHT: CACCCTTCGTCCAAGCAAAG  (cDNA=188-207, len=20, Tm=59.41)
+GC%  : LEFT 60.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+RIGHT dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 87.50
+Pair penalty (primer3): 0.702
+預期產物長度: 167 bp
+預期產物序列: GAGAGCGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAACCAGCTTTGCAGATGAGTGAATGAAGCGGGAGGTAAAAGCTTCGATCTCGCACCGTCTTTGCTTGGACGAAGGGTG
+跨 junction 的引子: N/A
+
+
+== Rank 23 | score=-5.160 ==
+LEFT : TCCTTCAGTCCACTCAGGGG   (cDNA=29-48, len=20, Tm=60.55)
+RIGHT: ACCTCCCGCTTCATTCACTC  (cDNA=146-165, len=20, Tm=59.75)
+GC%  : LEFT 60.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=38.24
+RIGHT dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 86.00
+Pair penalty (primer3): 0.796
+預期產物長度: 118 bp
+預期產物序列: TCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAACCAGCTTTGCAGATGAGTGAATGAAGCGGGAGGT
+跨 junction 的引子: N/A
+
+
+== Rank 24 | score=-5.363 ==
+LEFT : GAGAGCGTCCTTCAGTCCAC   (cDNA=22-41, len=20, Tm=60.11)
+RIGHT: CTGGTTTCCATGGCCGTTTG  (cDNA=116-135, len=20, Tm=60.04)
+GC%  : LEFT 60.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+RIGHT dimer/hairpin: self_any=6.96, self_end=0.00, hairpin=30.82
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 85.90
+Pair penalty (primer3): 0.147
+預期產物長度: 95 bp
+預期產物序列: GAGAGCGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAACCAG
+跨 junction 的引子: N/A
+
+
+== Rank 25 | score=-5.433 ==
+LEFT : CTGGATGGAAGAGAGCGTCC   (cDNA=12-31, len=20, Tm=59.90)
+RIGHT: ACCTCCCGCTTCATTCACTC  (cDNA=146-165, len=20, Tm=59.75)
+GC%  : LEFT 60.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=42.27
+RIGHT dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 86.80
+Pair penalty (primer3): 0.354
+預期產物長度: 135 bp
+預期產物序列: CTGGATGGAAGAGAGCGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAACCAGCTTTGCAGATGAGTGAATGAAGCGGGAGGT
+跨 junction 的引子: N/A
+
+
+== Rank 26 | score=-5.490 ==
+LEFT : GAGCGTCCTTCAGTCCACTC   (cDNA=24-43, len=20, Tm=60.11)
+RIGHT: CTGGTTTCCATGGCCGTTTG  (cDNA=116-135, len=20, Tm=60.04)
+GC%  : LEFT 60.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+RIGHT dimer/hairpin: self_any=6.96, self_end=0.00, hairpin=30.82
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 85.80
+Pair penalty (primer3): 0.147
+預期產物長度: 93 bp
+預期產物序列: GAGCGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAACCAG
+跨 junction 的引子: N/A
+
+
+== Rank 27 | score=-5.505 ==
+LEFT : GCTGGATGGAAGAGAGCGTC   (cDNA=11-30, len=20, Tm=60.53)
+RIGHT: CTGGTTTCCATGGCCGTTTG  (cDNA=116-135, len=20, Tm=60.04)
+GC%  : LEFT 60.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+RIGHT dimer/hairpin: self_any=6.96, self_end=0.00, hairpin=30.82
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 86.40
+Pair penalty (primer3): 0.568
+預期產物長度: 106 bp
+預期產物序列: GCTGGATGGAAGAGAGCGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAACCAG
+跨 junction 的引子: N/A
+
+
+== Rank 28 | score=-5.766 ==
+LEFT : CGTCCTTCAGTCCACTCAGG   (cDNA=27-46, len=20, Tm=59.76)
+RIGHT: TCGAAGCTTTTACCTCCCGC  (cDNA=157-176, len=20, Tm=60.39)
+GC%  : LEFT 60.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=39.47
+RIGHT dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 86.10
+Pair penalty (primer3): 0.636
+預期產物長度: 131 bp
+預期產物序列: CGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAACCAGCTTTGCAGATGAGTGAATGAAGCGGGAGGTAAAAGCTTCGA
+跨 junction 的引子: N/A
+
+
+== Rank 29 | score=-5.865 ==
+LEFT : CTGGATGGAAGAGAGCGTCC   (cDNA=12-31, len=20, Tm=59.90)
+RIGHT: GCTTGGCATGTGGGTGAATG  (cDNA=97-116, len=20, Tm=60.11)
+GC%  : LEFT 60.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=42.27
+RIGHT dimer/hairpin: self_any=2.12, self_end=0.00, hairpin=0.00
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 85.30
+Pair penalty (primer3): 0.212
+預期產物長度: 86 bp
+預期產物序列: CTGGATGGAAGAGAGCGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGC
+跨 junction 的引子: N/A
+
+
+== Rank 30 | score=-5.908 ==
+LEFT : GAGAGCGTCCTTCAGTCCAC   (cDNA=22-41, len=20, Tm=60.11)
+RIGHT: GCTTGGCATGTGGGTGAATG  (cDNA=97-116, len=20, Tm=60.11)
+GC%  : LEFT 60.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+RIGHT dimer/hairpin: self_any=2.12, self_end=0.00, hairpin=0.00
+PAIR  heterodimer: compl_any=3.20, compl_end=3.20
+Pair product Tm: 84.80
+Pair penalty (primer3): 0.218
+預期產物長度: 76 bp
+預期產物序列: GAGAGCGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGC
+跨 junction 的引子: N/A
+
+
+== Rank 31 | score=-6.077 ==
+LEFT : GAGAGCGTCCTTCAGTCCAC   (cDNA=22-41, len=20, Tm=60.11)
+RIGHT: GCAAAGCTGGTTTCCATGGC  (cDNA=122-141, len=20, Tm=60.67)
+GC%  : LEFT 60.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+RIGHT dimer/hairpin: self_any=6.96, self_end=0.00, hairpin=30.82
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 86.10
+Pair penalty (primer3): 0.781
+預期產物長度: 101 bp
+預期產物序列: GAGAGCGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAACCAGCTTTGC
+跨 junction 的引子: N/A
+
+
+== Rank 32 | score=-6.177 ==
+LEFT : GCGTCCTTCAGTCCACTCAG   (cDNA=26-45, len=20, Tm=60.39)
+RIGHT: CTGGTTTCCATGGCCGTTTG  (cDNA=116-135, len=20, Tm=60.04)
+GC%  : LEFT 60.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+RIGHT dimer/hairpin: self_any=6.96, self_end=0.00, hairpin=30.82
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 85.70
+Pair penalty (primer3): 0.428
+預期產物長度: 91 bp
+預期產物序列: GCGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAACCAG
+跨 junction 的引子: N/A
+
+
+== Rank 33 | score=-6.204 ==
+LEFT : GAGCGTCCTTCAGTCCACTC   (cDNA=24-43, len=20, Tm=60.11)
+RIGHT: GCAAAGCTGGTTTCCATGGC  (cDNA=122-141, len=20, Tm=60.67)
+GC%  : LEFT 60.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+RIGHT dimer/hairpin: self_any=6.96, self_end=0.00, hairpin=30.82
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 86.00
+Pair penalty (primer3): 0.781
+預期產物長度: 99 bp
+預期產物序列: GAGCGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAACCAGCTTTGC
+跨 junction 的引子: N/A
+
+
+== Rank 34 | score=-6.348 ==
+LEFT : CTGGATGGAAGAGAGCGTCC   (cDNA=12-31, len=20, Tm=59.90)
+RIGHT: ATGTGGGTGAATGAGTCGGC  (cDNA=90-109, len=20, Tm=60.39)
+GC%  : LEFT 60.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=42.27
+RIGHT dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 84.20
+Pair penalty (primer3): 0.497
+預期產物長度: 79 bp
+預期產物序列: CTGGATGGAAGAGAGCGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACAT
+跨 junction 的引子: N/A
+
+
+== Rank 35 | score=-6.372 ==
+LEFT : CATTCACCCACATGCCAAGC   (cDNA=78-97, len=20, Tm=60.11)
+RIGHT: AAGACGGTGCGAGATCGAAG  (cDNA=171-190, len=20, Tm=60.18)
+GC%  : LEFT 55.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+RIGHT dimer/hairpin: self_any=6.39, self_end=0.00, hairpin=43.02
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 83.00
+Pair penalty (primer3): 0.288
+預期產物長度: 94 bp
+預期產物序列: CATTCACCCACATGCCAAGCAAACGGCCATGGAAACCAGCTTTGCAGATGAGTGAATGAAGCGGGAGGTAAAAGCTTCGATCTCGCACCGTCTT
+跨 junction 的引子: N/A
+
+
+== Rank 36 | score=-6.507 ==
+LEFT : GAGAGCGTCCTTCAGTCCAC   (cDNA=22-41, len=20, Tm=60.11)
+RIGHT: TTTCCATGGCCGTTTGCTTG  (cDNA=112-131, len=20, Tm=59.97)
+GC%  : LEFT 60.0 | RIGHT 50.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+RIGHT dimer/hairpin: self_any=6.96, self_end=0.00, hairpin=40.92
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 85.30
+Pair penalty (primer3): 0.142
+預期產物長度: 91 bp
+預期產物序列: GAGAGCGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAA
+跨 junction 的引子: N/A
+
+
+== Rank 37 | score=-6.634 ==
+LEFT : GAGCGTCCTTCAGTCCACTC   (cDNA=24-43, len=20, Tm=60.11)
+RIGHT: TTTCCATGGCCGTTTGCTTG  (cDNA=112-131, len=20, Tm=59.97)
+GC%  : LEFT 60.0 | RIGHT 50.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+RIGHT dimer/hairpin: self_any=6.96, self_end=0.00, hairpin=40.92
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 85.20
+Pair penalty (primer3): 0.142
+預期產物長度: 89 bp
+預期產物序列: GAGCGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAA
+跨 junction 的引子: N/A
+
+
+== Rank 38 | score=-6.643 ==
+LEFT : CTGGATGGAAGAGAGCGTCC   (cDNA=12-31, len=20, Tm=59.90)
+RIGHT: GCATGTGGGTGAATGAGTCG  (cDNA=92-111, len=20, Tm=59.27)
+GC%  : LEFT 60.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=42.27
+RIGHT dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 84.80
+Pair penalty (primer3): 0.833
+預期產物長度: 81 bp
+預期產物序列: CTGGATGGAAGAGAGCGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGC
+跨 junction 的引子: N/A
+
+
+== Rank 39 | score=-6.649 ==
+LEFT : GCTGGATGGAAGAGAGCGTC   (cDNA=11-30, len=20, Tm=60.53)
+RIGHT: TTTCCATGGCCGTTTGCTTG  (cDNA=112-131, len=20, Tm=59.97)
+GC%  : LEFT 60.0 | RIGHT 50.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+RIGHT dimer/hairpin: self_any=6.96, self_end=0.00, hairpin=40.92
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 85.90
+Pair penalty (primer3): 0.563
+預期產物長度: 102 bp
+預期產物序列: GCTGGATGGAAGAGAGCGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAA
+跨 junction 的引子: N/A
+
+
+== Rank 40 | score=-6.698 ==
+LEFT : GAGAGCGTCCTTCAGTCCAC   (cDNA=22-41, len=20, Tm=60.11)
+RIGHT: GTTTGCTTGGCATGTGGGTG  (cDNA=101-120, len=20, Tm=60.60)
+GC%  : LEFT 60.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+RIGHT dimer/hairpin: self_any=2.12, self_end=0.00, hairpin=38.76
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 84.50
+Pair penalty (primer3): 0.710
+預期產物長度: 80 bp
+預期產物序列: GAGAGCGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAAC
+跨 junction 的引子: N/A
+
+
+== Rank 41 | score=-6.826 ==
+LEFT : GAGCGTCCTTCAGTCCACTC   (cDNA=24-43, len=20, Tm=60.11)
+RIGHT: GTTTGCTTGGCATGTGGGTG  (cDNA=101-120, len=20, Tm=60.60)
+GC%  : LEFT 60.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+RIGHT dimer/hairpin: self_any=2.12, self_end=0.00, hairpin=38.76
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 84.40
+Pair penalty (primer3): 0.710
+預期產物長度: 78 bp
+預期產物序列: GAGCGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAAC
+跨 junction 的引子: N/A
+
+
+== Rank 42 | score=-6.839 ==
+LEFT : GAGAGCGTCCTTCAGTCCAC   (cDNA=22-41, len=20, Tm=60.11)
+RIGHT: CAAAGCTGGTTTCCATGGCC  (cDNA=121-140, len=20, Tm=60.04)
+GC%  : LEFT 60.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+RIGHT dimer/hairpin: self_any=6.96, self_end=2.99, hairpin=30.82
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 85.80
+Pair penalty (primer3): 0.146
+預期產物長度: 100 bp
+預期產物序列: GAGAGCGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAACCAGCTTTG
+跨 junction 的引子: N/A
+
+
+== Rank 43 | score=-6.966 ==
+LEFT : GAGCGTCCTTCAGTCCACTC   (cDNA=24-43, len=20, Tm=60.11)
+RIGHT: CAAAGCTGGTTTCCATGGCC  (cDNA=121-140, len=20, Tm=60.04)
+GC%  : LEFT 60.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+RIGHT dimer/hairpin: self_any=6.96, self_end=2.99, hairpin=30.82
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 85.80
+Pair penalty (primer3): 0.146
+預期產物長度: 98 bp
+預期產物序列: GAGCGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAACCAGCTTTG
+跨 junction 的引子: N/A
+
+
+== Rank 44 | score=-7.321 ==
+LEFT : GCGTCCTTCAGTCCACTCAG   (cDNA=26-45, len=20, Tm=60.39)
+RIGHT: TTTCCATGGCCGTTTGCTTG  (cDNA=112-131, len=20, Tm=59.97)
+GC%  : LEFT 60.0 | RIGHT 50.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+RIGHT dimer/hairpin: self_any=6.96, self_end=0.00, hairpin=40.92
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 85.10
+Pair penalty (primer3): 0.422
+預期產物長度: 87 bp
+預期產物序列: GCGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAA
+跨 junction 的引子: N/A
+
+
+== Rank 45 | score=-7.555 ==
+LEFT : CGTCCTTCAGTCCACTCAGG   (cDNA=27-46, len=20, Tm=59.76)
+RIGHT: CACCCTTCGTCCAAGCAAAG  (cDNA=188-207, len=20, Tm=59.41)
+GC%  : LEFT 60.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=39.47
+RIGHT dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 87.30
+Pair penalty (primer3): 0.838
+預期產物長度: 162 bp
+預期產物序列: CGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAACCAGCTTTGCAGATGAGTGAATGAAGCGGGAGGTAAAAGCTTCGATCTCGCACCGTCTTTGCTTGGACGAAGGGTG
+跨 junction 的引子: N/A
+
+
+== Rank 46 | score=-7.654 ==
+LEFT : GCGTCCTTCAGTCCACTCAG   (cDNA=26-45, len=20, Tm=60.39)
+RIGHT: CAAAGCTGGTTTCCATGGCC  (cDNA=121-140, len=20, Tm=60.04)
+GC%  : LEFT 60.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+RIGHT dimer/hairpin: self_any=6.96, self_end=2.99, hairpin=30.82
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 85.70
+Pair penalty (primer3): 0.426
+預期產物長度: 96 bp
+預期產物序列: GCGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAACCAGCTTTG
+跨 junction 的引子: N/A
+
+
+== Rank 47 | score=-7.699 ==
+LEFT : CTGGATGGAAGAGAGCGTCC   (cDNA=12-31, len=20, Tm=59.90)
+RIGHT: TCGAAGCTTTTACCTCCCGC  (cDNA=157-176, len=20, Tm=60.39)
+GC%  : LEFT 60.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=42.27
+RIGHT dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+PAIR  heterodimer: compl_any=2.96, compl_end=0.00
+Pair product Tm: 86.50
+Pair penalty (primer3): 0.495
+預期產物長度: 146 bp
+預期產物序列: CTGGATGGAAGAGAGCGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAACCAGCTTTGCAGATGAGTGAATGAAGCGGGAGGTAAAAGCTTCGA
+跨 junction 的引子: N/A
+
+
+== Rank 48 | score=-7.772 ==
+LEFT : GAGCGTCCTTCAGTCCACTC   (cDNA=24-43, len=20, Tm=60.11)
+RIGHT: AAGACGGTGCGAGATCGAAG  (cDNA=171-190, len=20, Tm=60.18)
+GC%  : LEFT 60.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+RIGHT dimer/hairpin: self_any=6.39, self_end=0.00, hairpin=43.02
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 86.80
+Pair penalty (primer3): 0.288
+預期產物長度: 148 bp
+預期產物序列: GAGCGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAACCAGCTTTGCAGATGAGTGAATGAAGCGGGAGGTAAAAGCTTCGATCTCGCACCGTCTT
+跨 junction 的引子: N/A
+
+
+== Rank 49 | score=-7.899 ==
+LEFT : GAGAGCGTCCTTCAGTCCAC   (cDNA=22-41, len=20, Tm=60.11)
+RIGHT: AAGACGGTGCGAGATCGAAG  (cDNA=171-190, len=20, Tm=60.18)
+GC%  : LEFT 60.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+RIGHT dimer/hairpin: self_any=6.39, self_end=0.00, hairpin=43.02
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 86.90
+Pair penalty (primer3): 0.288
+預期產物長度: 150 bp
+預期產物序列: GAGAGCGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAACCAGCTTTGCAGATGAGTGAATGAAGCGGGAGGTAAAAGCTTCGATCTCGCACCGTCTT
+跨 junction 的引子: N/A
+
+
+== Rank 50 | score=-8.036 ==
+LEFT : GCGTCCTTCAGTCCACTCAG   (cDNA=26-45, len=20, Tm=60.39)
+RIGHT: AAGACGGTGCGAGATCGAAG  (cDNA=171-190, len=20, Tm=60.18)
+GC%  : LEFT 60.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+RIGHT dimer/hairpin: self_any=6.39, self_end=0.00, hairpin=43.02
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 86.80
+Pair penalty (primer3): 0.568
+預期產物長度: 146 bp
+預期產物序列: GCGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAACCAGCTTTGCAGATGAGTGAATGAAGCGGGAGGTAAAAGCTTCGATCTCGCACCGTCTT
+跨 junction 的引子: N/A
+
+
+== Rank 51 | score=-8.189 ==
+LEFT : CTGGATGGAAGAGAGCGTCC   (cDNA=12-31, len=20, Tm=59.90)
+RIGHT: CTGGTTTCCATGGCCGTTTG  (cDNA=116-135, len=20, Tm=60.04)
+GC%  : LEFT 60.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=42.27
+RIGHT dimer/hairpin: self_any=6.96, self_end=0.00, hairpin=30.82
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 86.20
+Pair penalty (primer3): 0.142
+預期產物長度: 105 bp
+預期產物序列: CTGGATGGAAGAGAGCGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAACCAG
+跨 junction 的引子: N/A
+
+
+== Rank 52 | score=-8.779 ==
+LEFT : GAGAGCGTCCTTCAGTCCAC   (cDNA=22-41, len=20, Tm=60.11)
+RIGHT: TGCAAAGCTGGTTTCCATGG  (cDNA=123-142, len=20, Tm=59.32)
+GC%  : LEFT 60.0 | RIGHT 50.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+RIGHT dimer/hairpin: self_any=4.97, self_end=4.97, hairpin=30.82
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 85.90
+Pair penalty (primer3): 0.790
+預期產物長度: 102 bp
+預期產物序列: GAGAGCGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAACCAGCTTTGCA
+跨 junction 的引子: N/A
+
+
+== Rank 53 | score=-8.906 ==
+LEFT : GAGCGTCCTTCAGTCCACTC   (cDNA=24-43, len=20, Tm=60.11)
+RIGHT: TGCAAAGCTGGTTTCCATGG  (cDNA=123-142, len=20, Tm=59.32)
+GC%  : LEFT 60.0 | RIGHT 50.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+RIGHT dimer/hairpin: self_any=4.97, self_end=4.97, hairpin=30.82
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 85.80
+Pair penalty (primer3): 0.790
+預期產物長度: 100 bp
+預期產物序列: GAGCGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAACCAGCTTTGCA
+跨 junction 的引子: N/A
+
+
+== Rank 54 | score=-9.066 ==
+LEFT : GAGCGTCCTTCAGTCCACTC   (cDNA=24-43, len=20, Tm=60.11)
+RIGHT: GCTTGGCATGTGGGTGAATG  (cDNA=97-116, len=20, Tm=60.11)
+GC%  : LEFT 60.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+RIGHT dimer/hairpin: self_any=2.12, self_end=0.00, hairpin=0.00
+PAIR  heterodimer: compl_any=7.66, compl_end=5.65
+Pair product Tm: 84.70
+Pair penalty (primer3): 0.218
+預期產物長度: 74 bp
+預期產物序列: GAGCGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGC
+跨 junction 的引子: N/A
+
+
+== Rank 55 | score=-9.163 ==
+LEFT : CTGGATGGAAGAGAGCGTCC   (cDNA=12-31, len=20, Tm=59.90)
+RIGHT: TTTCCATGGCCGTTTGCTTG  (cDNA=112-131, len=20, Tm=59.97)
+GC%  : LEFT 60.0 | RIGHT 50.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=42.27
+RIGHT dimer/hairpin: self_any=6.96, self_end=0.00, hairpin=40.92
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 85.70
+Pair penalty (primer3): 0.137
+預期產物長度: 101 bp
+預期產物序列: CTGGATGGAAGAGAGCGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAA
+跨 junction 的引子: N/A
+
+
+== Rank 56 | score=-9.202 ==
+LEFT : CGTCCTTCAGTCCACTCAGG   (cDNA=27-46, len=20, Tm=59.76)
+RIGHT: CTGGTTTCCATGGCCGTTTG  (cDNA=116-135, len=20, Tm=60.04)
+GC%  : LEFT 60.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=39.47
+RIGHT dimer/hairpin: self_any=6.96, self_end=0.00, hairpin=30.82
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 85.50
+Pair penalty (primer3): 0.283
+預期產物長度: 90 bp
+預期產物序列: CGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAACCAG
+跨 junction 的引子: N/A
+
+
+== Rank 57 | score=-9.273 ==
+LEFT : GCTGGATGGAAGAGAGCGTC   (cDNA=11-30, len=20, Tm=60.53)
+RIGHT: AAGACGGTGCGAGATCGAAG  (cDNA=171-190, len=20, Tm=60.18)
+GC%  : LEFT 60.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+RIGHT dimer/hairpin: self_any=6.39, self_end=0.00, hairpin=43.02
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 87.10
+Pair penalty (primer3): 0.709
+預期產物長度: 161 bp
+預期產物序列: GCTGGATGGAAGAGAGCGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAACCAGCTTTGCAGATGAGTGAATGAAGCGGGAGGTAAAAGCTTCGATCTCGCACCGTCTT
+跨 junction 的引子: N/A
+
+
+== Rank 58 | score=-9.695 ==
+LEFT : CTGGATGGAAGAGAGCGTCC   (cDNA=12-31, len=20, Tm=59.90)
+RIGHT: GTTTGCTTGGCATGTGGGTG  (cDNA=101-120, len=20, Tm=60.60)
+GC%  : LEFT 60.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=42.27
+RIGHT dimer/hairpin: self_any=2.12, self_end=0.00, hairpin=38.76
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 85.00
+Pair penalty (primer3): 0.705
+預期產物長度: 90 bp
+預期產物序列: CTGGATGGAAGAGAGCGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAAC
+跨 junction 的引子: N/A
+
+
+== Rank 59 | score=-9.740 ==
+LEFT : TCCTTCAGTCCACTCAGGGG   (cDNA=29-48, len=20, Tm=60.55)
+RIGHT: CTGGTTTCCATGGCCGTTTG  (cDNA=116-135, len=20, Tm=60.04)
+GC%  : LEFT 60.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=38.24
+RIGHT dimer/hairpin: self_any=6.96, self_end=0.00, hairpin=30.82
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 84.90
+Pair penalty (primer3): 0.584
+預期產物長度: 88 bp
+預期產物序列: TCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAACCAG
+跨 junction 的引子: N/A
+
+
+== Rank 60 | score=-9.754 ==
+LEFT : GCGTCCTTCAGTCCACTCAG   (cDNA=26-45, len=20, Tm=60.39)
+RIGHT: GCTTGGCATGTGGGTGAATG  (cDNA=97-116, len=20, Tm=60.11)
+GC%  : LEFT 60.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+RIGHT dimer/hairpin: self_any=2.12, self_end=0.00, hairpin=0.00
+PAIR  heterodimer: compl_any=7.66, compl_end=5.65
+Pair product Tm: 84.60
+Pair penalty (primer3): 0.498
+預期產物長度: 72 bp
+預期產物序列: GCGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGC
+跨 junction 的引子: N/A
+
+
+== Rank 61 | score=-9.779 ==
+LEFT : ATGGCTGGATGGAAGAGAGC   (cDNA=8-27, len=20, Tm=59.53)
+RIGHT: AAGACGGTGCGAGATCGAAG  (cDNA=171-190, len=20, Tm=60.18)
+GC%  : LEFT 55.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+RIGHT dimer/hairpin: self_any=6.39, self_end=0.00, hairpin=43.02
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 87.10
+Pair penalty (primer3): 0.652
+預期產物長度: 164 bp
+預期產物序列: ATGGCTGGATGGAAGAGAGCGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAACCAGCTTTGCAGATGAGTGAATGAAGCGGGAGGTAAAAGCTTCGATCTCGCACCGTCTT
+跨 junction 的引子: N/A
+
+
+== Rank 62 | score=-9.958 ==
+LEFT : ACGATGGCTGGATGGAAGAG   (cDNA=5-24, len=20, Tm=59.53)
+RIGHT: AAGACGGTGCGAGATCGAAG  (cDNA=171-190, len=20, Tm=60.18)
+GC%  : LEFT 55.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+RIGHT dimer/hairpin: self_any=6.39, self_end=0.00, hairpin=43.02
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 87.20
+Pair penalty (primer3): 0.647
+預期產物長度: 167 bp
+預期產物序列: ACGATGGCTGGATGGAAGAGAGCGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAACCAGCTTTGCAGATGAGTGAATGAAGCGGGAGGTAAAAGCTTCGATCTCGCACCGTCTT
+跨 junction 的引子: N/A
+
+
+== Rank 63 | score=-10.175 ==
+LEFT : CGTCCTTCAGTCCACTCAGG   (cDNA=27-46, len=20, Tm=59.76)
+RIGHT: TTTCCATGGCCGTTTGCTTG  (cDNA=112-131, len=20, Tm=59.97)
+GC%  : LEFT 60.0 | RIGHT 50.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=39.47
+RIGHT dimer/hairpin: self_any=6.96, self_end=0.00, hairpin=40.92
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 84.80
+Pair penalty (primer3): 0.278
+預期產物長度: 86 bp
+預期產物序列: CGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAA
+跨 junction 的引子: N/A
+
+
+== Rank 64 | score=-10.264 ==
+LEFT : GGCCATGGAAACCAGCTTTG   (cDNA=102-121, len=20, Tm=60.04)
+RIGHT: CACCCTTCGTCCAAGCAAAG  (cDNA=188-207, len=20, Tm=59.41)
+GC%  : LEFT 55.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=18.40, self_end=0.00, hairpin=36.75
+RIGHT dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 83.20
+Pair penalty (primer3): 0.630
+預期產物長度: 87 bp
+預期產物序列: GGCCATGGAAACCAGCTTTGCAGATGAGTGAATGAAGCGGGAGGTAAAAGCTTCGATCTCGCACCGTCTTTGCTTGGACGAAGGGTG
+跨 junction 的引子: N/A
+
+
+== Rank 65 | score=-10.584 ==
+LEFT : GTCCTTCAGTCCACTCAGGG   (cDNA=28-47, len=20, Tm=59.39)
+RIGHT: CTGGTTTCCATGGCCGTTTG  (cDNA=116-135, len=20, Tm=60.04)
+GC%  : LEFT 60.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=2.74, self_end=0.00, hairpin=38.24
+RIGHT dimer/hairpin: self_any=6.96, self_end=0.00, hairpin=30.82
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 85.20
+Pair penalty (primer3): 0.649
+預期產物長度: 89 bp
+預期產物序列: GTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAACCAG
+跨 junction 的引子: N/A
+
+
+== Rank 66 | score=-10.676 ==
+LEFT : CGTCCTTCAGTCCACTCAGG   (cDNA=27-46, len=20, Tm=59.76)
+RIGHT: CAAAGCTGGTTTCCATGGCC  (cDNA=121-140, len=20, Tm=60.04)
+GC%  : LEFT 60.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=39.47
+RIGHT dimer/hairpin: self_any=6.96, self_end=2.99, hairpin=30.82
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 85.40
+Pair penalty (primer3): 0.282
+預期產物長度: 95 bp
+預期產物序列: CGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAACCAGCTTTG
+跨 junction 的引子: N/A
+
+
+== Rank 67 | score=-10.883 ==
+LEFT : TCCTTCAGTCCACTCAGGGG   (cDNA=29-48, len=20, Tm=60.55)
+RIGHT: TTTCCATGGCCGTTTGCTTG  (cDNA=112-131, len=20, Tm=59.97)
+GC%  : LEFT 60.0 | RIGHT 50.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=38.24
+RIGHT dimer/hairpin: self_any=6.96, self_end=0.00, hairpin=40.92
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 84.30
+Pair penalty (primer3): 0.579
+預期產物長度: 84 bp
+預期產物序列: TCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAA
+跨 junction 的引子: N/A
+
+
+== Rank 68 | score=-10.932 ==
+LEFT : CACCCACATGCCAAGCAAAC   (cDNA=82-101, len=20, Tm=60.60)
+RIGHT: AAGACGGTGCGAGATCGAAG  (cDNA=171-190, len=20, Tm=60.18)
+GC%  : LEFT 55.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=43.62
+RIGHT dimer/hairpin: self_any=6.39, self_end=0.00, hairpin=43.02
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 83.20
+Pair penalty (primer3): 0.780
+預期產物長度: 90 bp
+預期產物序列: CACCCACATGCCAAGCAAACGGCCATGGAAACCAGCTTTGCAGATGAGTGAATGAAGCGGGAGGTAAAAGCTTCGATCTCGCACCGTCTT
+跨 junction 的引子: N/A
+
+
+== Rank 69 | score=-11.216 ==
+LEFT : TCCTTCAGTCCACTCAGGGG   (cDNA=29-48, len=20, Tm=60.55)
+RIGHT: CAAAGCTGGTTTCCATGGCC  (cDNA=121-140, len=20, Tm=60.04)
+GC%  : LEFT 60.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=38.24
+RIGHT dimer/hairpin: self_any=6.96, self_end=2.99, hairpin=30.82
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 84.90
+Pair penalty (primer3): 0.582
+預期產物長度: 93 bp
+預期產物序列: TCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAACCAGCTTTG
+跨 junction 的引子: N/A
+
+
+== Rank 70 | score=-11.217 ==
+LEFT : TCCTTCAGTCCACTCAGGGG   (cDNA=29-48, len=20, Tm=60.55)
+RIGHT: AAGACGGTGCGAGATCGAAG  (cDNA=171-190, len=20, Tm=60.18)
+GC%  : LEFT 60.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=38.24
+RIGHT dimer/hairpin: self_any=6.39, self_end=0.00, hairpin=43.02
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 86.30
+Pair penalty (primer3): 0.724
+預期產物長度: 143 bp
+預期產物序列: TCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAACCAGCTTTGCAGATGAGTGAATGAAGCGGGAGGTAAAAGCTTCGATCTCGCACCGTCTT
+跨 junction 的引子: N/A
+
+
+== Rank 71 | score=-11.252 ==
+LEFT : GAGAGCGTCCTTCAGTCCAC   (cDNA=22-41, len=20, Tm=60.11)
+RIGHT: GCATGTGGGTGAATGAGTCG  (cDNA=92-111, len=20, Tm=59.27)
+GC%  : LEFT 60.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+RIGHT dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+PAIR  heterodimer: compl_any=5.99, compl_end=8.33
+Pair product Tm: 84.30
+Pair penalty (primer3): 0.838
+預期產物長度: 71 bp
+預期產物序列: GAGAGCGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGC
+跨 junction 的引子: N/A
+
+
+== Rank 72 | score=-11.272 ==
+LEFT : CGTCCTTCAGTCCACTCAGG   (cDNA=27-46, len=20, Tm=59.76)
+RIGHT: AAGACGGTGCGAGATCGAAG  (cDNA=171-190, len=20, Tm=60.18)
+GC%  : LEFT 60.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=39.47
+RIGHT dimer/hairpin: self_any=6.39, self_end=0.00, hairpin=43.02
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 86.70
+Pair penalty (primer3): 0.424
+預期產物長度: 145 bp
+預期產物序列: CGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAACCAGCTTTGCAGATGAGTGAATGAAGCGGGAGGTAAAAGCTTCGATCTCGCACCGTCTT
+跨 junction 的引子: N/A
+
+
+== Rank 73 | score=-11.558 ==
+LEFT : GTCCTTCAGTCCACTCAGGG   (cDNA=28-47, len=20, Tm=59.39)
+RIGHT: TTTCCATGGCCGTTTGCTTG  (cDNA=112-131, len=20, Tm=59.97)
+GC%  : LEFT 60.0 | RIGHT 50.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=2.74, self_end=0.00, hairpin=38.24
+RIGHT dimer/hairpin: self_any=6.96, self_end=0.00, hairpin=40.92
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 84.60
+Pair penalty (primer3): 0.644
+預期產物長度: 85 bp
+預期產物序列: GTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAA
+跨 junction 的引子: N/A
+
+
+== Rank 74 | score=-12.058 ==
+LEFT : GTCCTTCAGTCCACTCAGGG   (cDNA=28-47, len=20, Tm=59.39)
+RIGHT: CAAAGCTGGTTTCCATGGCC  (cDNA=121-140, len=20, Tm=60.04)
+GC%  : LEFT 60.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=2.74, self_end=0.00, hairpin=38.24
+RIGHT dimer/hairpin: self_any=6.96, self_end=2.99, hairpin=30.82
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 85.20
+Pair penalty (primer3): 0.648
+預期產物長度: 94 bp
+預期產物序列: GTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAACCAGCTTTG
+跨 junction 的引子: N/A
+
+
+== Rank 75 | score=-12.169 ==
+LEFT : CTGGATGGAAGAGAGCGTCC   (cDNA=12-31, len=20, Tm=59.90)
+RIGHT: AAGACGGTGCGAGATCGAAG  (cDNA=171-190, len=20, Tm=60.18)
+GC%  : LEFT 60.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=42.27
+RIGHT dimer/hairpin: self_any=6.39, self_end=0.00, hairpin=43.02
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 87.00
+Pair penalty (primer3): 0.283
+預期產物長度: 160 bp
+預期產物序列: CTGGATGGAAGAGAGCGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAACCAGCTTTGCAGATGAGTGAATGAAGCGGGAGGTAAAAGCTTCGATCTCGCACCGTCTT
+跨 junction 的引子: N/A
+
+
+== Rank 76 | score=-12.251 ==
+LEFT : CTGGATGGAAGAGAGCGTCC   (cDNA=12-31, len=20, Tm=59.90)
+RIGHT: AGCAAAGACGGTGCGAGATC  (cDNA=175-194, len=20, Tm=60.74)
+GC%  : LEFT 60.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=42.27
+RIGHT dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=46.86
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 87.10
+Pair penalty (primer3): 0.842
+預期產物長度: 164 bp
+預期產物序列: CTGGATGGAAGAGAGCGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAACCAGCTTTGCAGATGAGTGAATGAAGCGGGAGGTAAAAGCTTCGATCTCGCACCGTCTTTGCT
+跨 junction 的引子: N/A
+
+
+== Rank 77 | score=-12.511 ==
+LEFT : AAGCAAACGGCCATGGAAAC   (cDNA=94-113, len=20, Tm=59.97)
+RIGHT: CACCCTTCGTCCAAGCAAAG  (cDNA=188-207, len=20, Tm=59.41)
+GC%  : LEFT 50.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=18.40, self_end=3.44, hairpin=46.50
+RIGHT dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 83.30
+Pair penalty (primer3): 0.626
+預期產物長度: 95 bp
+預期產物序列: AAGCAAACGGCCATGGAAACCAGCTTTGCAGATGAGTGAATGAAGCGGGAGGTAAAAGCTTCGATCTCGCACCGTCTTTGCTTGGACGAAGGGTG
+跨 junction 的引子: N/A
+
+
+== Rank 78 | score=-12.527 ==
+LEFT : GTCCTTCAGTCCACTCAGGG   (cDNA=28-47, len=20, Tm=59.39)
+RIGHT: AAGACGGTGCGAGATCGAAG  (cDNA=171-190, len=20, Tm=60.18)
+GC%  : LEFT 60.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=2.74, self_end=0.00, hairpin=38.24
+RIGHT dimer/hairpin: self_any=6.39, self_end=0.00, hairpin=43.02
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 86.50
+Pair penalty (primer3): 0.790
+預期產物長度: 144 bp
+預期產物序列: GTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAACCAGCTTTGCAGATGAGTGAATGAAGCGGGAGGTAAAAGCTTCGATCTCGCACCGTCTT
+跨 junction 的引子: N/A
+
+
+== Rank 79 | score=-12.730 ==
+LEFT : CTGGATGGAAGAGAGCGTCC   (cDNA=12-31, len=20, Tm=59.90)
+RIGHT: CACCCTTCGTCCAAGCAAAG  (cDNA=188-207, len=20, Tm=59.41)
+GC%  : LEFT 60.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=42.27
+RIGHT dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+PAIR  heterodimer: compl_any=6.99, compl_end=2.49
+Pair product Tm: 87.50
+Pair penalty (primer3): 0.697
+預期產物長度: 177 bp
+預期產物序列: CTGGATGGAAGAGAGCGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAACCAGCTTTGCAGATGAGTGAATGAAGCGGGAGGTAAAAGCTTCGATCTCGCACCGTCTTTGCTTGGACGAAGGGTG
+跨 junction 的引子: N/A
+
+
+== Rank 80 | score=-12.767 ==
+LEFT : CTGGATGGAAGAGAGCGTCC   (cDNA=12-31, len=20, Tm=59.90)
+RIGHT: GCAAAGCTGGTTTCCATGGC  (cDNA=122-141, len=20, Tm=60.67)
+GC%  : LEFT 60.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=42.27
+RIGHT dimer/hairpin: self_any=6.96, self_end=0.00, hairpin=30.82
+PAIR  heterodimer: compl_any=8.92, compl_end=0.74
+Pair product Tm: 86.30
+Pair penalty (primer3): 0.775
+預期產物長度: 111 bp
+預期產物序列: CTGGATGGAAGAGAGCGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAACCAGCTTTGC
+跨 junction 的引子: N/A
+
+
+== Rank 81 | score=-12.798 ==
+LEFT : ACGATGGCTGGATGGAAGAG   (cDNA=5-24, len=20, Tm=59.53)
+RIGHT: TTTCCATGGCCGTTTGCTTG  (cDNA=112-131, len=20, Tm=59.97)
+GC%  : LEFT 55.0 | RIGHT 50.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+RIGHT dimer/hairpin: self_any=6.96, self_end=0.00, hairpin=40.92
+PAIR  heterodimer: compl_any=11.60, compl_end=4.46
+Pair product Tm: 86.10
+Pair penalty (primer3): 0.501
+預期產物長度: 108 bp
+預期產物序列: ACGATGGCTGGATGGAAGAGAGCGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAA
+跨 junction 的引子: N/A
+
+
+== Rank 82 | score=-12.896 ==
+LEFT : ATGGCTGGATGGAAGAGAGC   (cDNA=8-27, len=20, Tm=59.53)
+RIGHT: TTTCCATGGCCGTTTGCTTG  (cDNA=112-131, len=20, Tm=59.97)
+GC%  : LEFT 55.0 | RIGHT 50.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+RIGHT dimer/hairpin: self_any=6.96, self_end=0.00, hairpin=40.92
+PAIR  heterodimer: compl_any=11.30, compl_end=4.46
+Pair product Tm: 85.80
+Pair penalty (primer3): 0.507
+預期產物長度: 105 bp
+預期產物序列: ATGGCTGGATGGAAGAGAGCGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAA
+跨 junction 的引子: N/A
+
+
+== Rank 83 | score=-12.948 ==
+LEFT : CGTCCTTCAGTCCACTCAGG   (cDNA=27-46, len=20, Tm=59.76)
+RIGHT: GCTTGGCATGTGGGTGAATG  (cDNA=97-116, len=20, Tm=60.11)
+GC%  : LEFT 60.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=39.47
+RIGHT dimer/hairpin: self_any=2.12, self_end=0.00, hairpin=0.00
+PAIR  heterodimer: compl_any=7.66, compl_end=5.65
+Pair product Tm: 84.30
+Pair penalty (primer3): 0.354
+預期產物長度: 71 bp
+預期產物序列: CGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGC
+跨 junction 的引子: N/A
+
+
+== Rank 84 | score=-13.883 ==
+LEFT : CAAACGGCCATGGAAACCAG   (cDNA=97-116, len=20, Tm=60.04)
+RIGHT: CACCCTTCGTCCAAGCAAAG  (cDNA=188-207, len=20, Tm=59.41)
+GC%  : LEFT 55.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=18.40, self_end=6.56, hairpin=36.75
+RIGHT dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 83.30
+Pair penalty (primer3): 0.631
+預期產物長度: 92 bp
+預期產物序列: CAAACGGCCATGGAAACCAGCTTTGCAGATGAGTGAATGAAGCGGGAGGTAAAAGCTTCGATCTCGCACCGTCTTTGCTTGGACGAAGGGTG
+跨 junction 的引子: N/A
+
+
+== Rank 85 | score=-14.331 ==
+LEFT : GTCCTTCAGTCCACTCAGGG   (cDNA=28-47, len=20, Tm=59.39)
+RIGHT: GCTTGGCATGTGGGTGAATG  (cDNA=97-116, len=20, Tm=60.11)
+GC%  : LEFT 60.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=2.74, self_end=0.00, hairpin=38.24
+RIGHT dimer/hairpin: self_any=2.12, self_end=0.00, hairpin=0.00
+PAIR  heterodimer: compl_any=7.66, compl_end=5.65
+Pair product Tm: 83.90
+Pair penalty (primer3): 0.719
+預期產物長度: 70 bp
+預期產物序列: GTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGC
+跨 junction 的引子: N/A
+
+
+== Rank 86 | score=-14.850 ==
+LEFT : ATGGCTGGATGGAAGAGAGC   (cDNA=8-27, len=20, Tm=59.53)
+RIGHT: CTGGTTTCCATGGCCGTTTG  (cDNA=116-135, len=20, Tm=60.04)
+GC%  : LEFT 55.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+RIGHT dimer/hairpin: self_any=6.96, self_end=0.00, hairpin=30.82
+PAIR  heterodimer: compl_any=11.30, compl_end=9.34
+Pair product Tm: 86.30
+Pair penalty (primer3): 0.512
+預期產物長度: 109 bp
+預期產物序列: ATGGCTGGATGGAAGAGAGCGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAACCAG
+跨 junction 的引子: N/A
+
+
+== Rank 87 | score=-15.397 ==
+LEFT : ACGATGGCTGGATGGAAGAG   (cDNA=5-24, len=20, Tm=59.53)
+RIGHT: CTGGTTTCCATGGCCGTTTG  (cDNA=116-135, len=20, Tm=60.04)
+GC%  : LEFT 55.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+RIGHT dimer/hairpin: self_any=6.96, self_end=0.00, hairpin=30.82
+PAIR  heterodimer: compl_any=11.60, compl_end=9.99
+Pair product Tm: 86.50
+Pair penalty (primer3): 0.506
+預期產物長度: 112 bp
+預期產物序列: ACGATGGCTGGATGGAAGAGAGCGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAACCAG
+跨 junction 的引子: N/A
+
+
+== Rank 88 | score=-15.468 ==
+LEFT : GGCCATGGAAACCAGCTTTG   (cDNA=102-121, len=20, Tm=60.04)
+RIGHT: AAGACGGTGCGAGATCGAAG  (cDNA=171-190, len=20, Tm=60.18)
+GC%  : LEFT 55.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=18.40, self_end=0.00, hairpin=36.75
+RIGHT dimer/hairpin: self_any=6.39, self_end=0.00, hairpin=43.02
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 81.00
+Pair penalty (primer3): 0.216
+預期產物長度: 70 bp
+預期產物序列: GGCCATGGAAACCAGCTTTGCAGATGAGTGAATGAAGCGGGAGGTAAAAGCTTCGATCTCGCACCGTCTT
+跨 junction 的引子: N/A
+
+
+== Rank 89 | score=-15.774 ==
+LEFT : GCTGGATGGAAGAGAGCGTC   (cDNA=11-30, len=20, Tm=60.53)
+RIGHT: CAAAGCTGGTTTCCATGGCC  (cDNA=121-140, len=20, Tm=60.04)
+GC%  : LEFT 60.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+RIGHT dimer/hairpin: self_any=6.96, self_end=2.99, hairpin=30.82
+PAIR  heterodimer: compl_any=8.92, compl_end=9.24
+Pair product Tm: 86.30
+Pair penalty (primer3): 0.567
+預期產物長度: 111 bp
+預期產物序列: GCTGGATGGAAGAGAGCGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAACCAGCTTTG
+跨 junction 的引子: N/A
+
+
+== Rank 90 | score=-16.117 ==
+LEFT : CTGGATGGAAGAGAGCGTCC   (cDNA=12-31, len=20, Tm=59.90)
+RIGHT: TGCAAAGCTGGTTTCCATGG  (cDNA=123-142, len=20, Tm=59.32)
+GC%  : LEFT 60.0 | RIGHT 50.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=42.27
+RIGHT dimer/hairpin: self_any=4.97, self_end=4.97, hairpin=30.82
+PAIR  heterodimer: compl_any=8.92, compl_end=2.46
+Pair product Tm: 86.20
+Pair penalty (primer3): 0.785
+預期產物長度: 112 bp
+預期產物序列: CTGGATGGAAGAGAGCGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAACCAGCTTTGCA
+跨 junction 的引子: N/A
+
+
+== Rank 91 | score=-16.331 ==
+LEFT : CTGGATGGAAGAGAGCGTCC   (cDNA=12-31, len=20, Tm=59.90)
+RIGHT: CAAAGCTGGTTTCCATGGCC  (cDNA=121-140, len=20, Tm=60.04)
+GC%  : LEFT 60.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=42.27
+RIGHT dimer/hairpin: self_any=6.96, self_end=2.99, hairpin=30.82
+PAIR  heterodimer: compl_any=8.92, compl_end=5.91
+Pair product Tm: 86.10
+Pair penalty (primer3): 0.141
+預期產物長度: 110 bp
+預期產物序列: CTGGATGGAAGAGAGCGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAACCAGCTTTG
+跨 junction 的引子: N/A
+
+
+== Rank 92 | score=-16.653 ==
+LEFT : TAGCTGCCGACTCATTCACC   (cDNA=66-85, len=20, Tm=59.82)
+RIGHT: AAGACGGTGCGAGATCGAAG  (cDNA=171-190, len=20, Tm=60.18)
+GC%  : LEFT 55.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+RIGHT dimer/hairpin: self_any=6.39, self_end=0.00, hairpin=43.02
+PAIR  heterodimer: compl_any=11.21, compl_end=11.21
+Pair product Tm: 84.10
+Pair penalty (primer3): 0.355
+預期產物長度: 106 bp
+預期產物序列: TAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAACCAGCTTTGCAGATGAGTGAATGAAGCGGGAGGTAAAAGCTTCGATCTCGCACCGTCTT
+跨 junction 的引子: N/A
+
+
+== Rank 93 | score=-17.286 ==
+LEFT : ACGATGGCTGGATGGAAGAG   (cDNA=5-24, len=20, Tm=59.53)
+RIGHT: CAAAGCTGGTTTCCATGGCC  (cDNA=121-140, len=20, Tm=60.04)
+GC%  : LEFT 55.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+RIGHT dimer/hairpin: self_any=6.96, self_end=2.99, hairpin=30.82
+PAIR  heterodimer: compl_any=10.35, compl_end=10.35
+Pair product Tm: 86.50
+Pair penalty (primer3): 0.504
+預期產物長度: 117 bp
+預期產物序列: ACGATGGCTGGATGGAAGAGAGCGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAACCAGCTTTG
+跨 junction 的引子: N/A
+
+
+== Rank 94 | score=-17.457 ==
+LEFT : AAGCAAACGGCCATGGAAAC   (cDNA=94-113, len=20, Tm=59.97)
+RIGHT: AGCAAAGACGGTGCGAGATC  (cDNA=175-194, len=20, Tm=60.74)
+GC%  : LEFT 50.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=18.40, self_end=3.44, hairpin=46.50
+RIGHT dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=46.86
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 81.60
+Pair penalty (primer3): 0.771
+預期產物長度: 82 bp
+預期產物序列: AAGCAAACGGCCATGGAAACCAGCTTTGCAGATGAGTGAATGAAGCGGGAGGTAAAAGCTTCGATCTCGCACCGTCTTTGCT
+跨 junction 的引子: N/A
+
+
+== Rank 95 | score=-17.883 ==
+LEFT : AAGCAAACGGCCATGGAAAC   (cDNA=94-113, len=20, Tm=59.97)
+RIGHT: AAGACGGTGCGAGATCGAAG  (cDNA=171-190, len=20, Tm=60.18)
+GC%  : LEFT 50.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=18.40, self_end=3.44, hairpin=46.50
+RIGHT dimer/hairpin: self_any=6.39, self_end=0.00, hairpin=43.02
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 81.30
+Pair penalty (primer3): 0.213
+預期產物長度: 78 bp
+預期產物序列: AAGCAAACGGCCATGGAAACCAGCTTTGCAGATGAGTGAATGAAGCGGGAGGTAAAAGCTTCGATCTCGCACCGTCTT
+跨 junction 的引子: N/A
+
+
+== Rank 96 | score=-18.658 ==
+LEFT : CAAACGGCCATGGAAACCAG   (cDNA=97-116, len=20, Tm=60.04)
+RIGHT: AGCAAAGACGGTGCGAGATC  (cDNA=175-194, len=20, Tm=60.74)
+GC%  : LEFT 55.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=18.40, self_end=6.56, hairpin=36.75
+RIGHT dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=46.86
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 81.60
+Pair penalty (primer3): 0.776
+預期產物長度: 79 bp
+預期產物序列: CAAACGGCCATGGAAACCAGCTTTGCAGATGAGTGAATGAAGCGGGAGGTAAAAGCTTCGATCTCGCACCGTCTTTGCT
+跨 junction 的引子: N/A
+
+
+== Rank 97 | score=-18.665 ==
+LEFT : TAGGGTCGAATTAGCTGCCG   (cDNA=55-74, len=20, Tm=59.61)
+RIGHT: AAGACGGTGCGAGATCGAAG  (cDNA=171-190, len=20, Tm=60.18)
+GC%  : LEFT 55.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+RIGHT dimer/hairpin: self_any=6.39, self_end=0.00, hairpin=43.02
+PAIR  heterodimer: compl_any=12.68, compl_end=12.68
+Pair product Tm: 84.40
+Pair penalty (primer3): 0.567
+預期產物長度: 117 bp
+預期產物序列: TAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAACCAGCTTTGCAGATGAGTGAATGAAGCGGGAGGTAAAAGCTTCGATCTCGCACCGTCTT
+跨 junction 的引子: N/A
+
+
+== Rank 98 | score=-18.689 ==
+LEFT : GGCCATGGAAACCAGCTTTG   (cDNA=102-121, len=20, Tm=60.04)
+RIGHT: AGCAAAGACGGTGCGAGATC  (cDNA=175-194, len=20, Tm=60.74)
+GC%  : LEFT 55.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=18.40, self_end=0.00, hairpin=36.75
+RIGHT dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=46.86
+PAIR  heterodimer: compl_any=3.84, compl_end=3.84
+Pair product Tm: 81.40
+Pair penalty (primer3): 0.775
+預期產物長度: 74 bp
+預期產物序列: GGCCATGGAAACCAGCTTTGCAGATGAGTGAATGAAGCGGGAGGTAAAAGCTTCGATCTCGCACCGTCTTTGCT
+跨 junction 的引子: N/A
+
+
+== Rank 99 | score=-19.085 ==
+LEFT : CAAACGGCCATGGAAACCAG   (cDNA=97-116, len=20, Tm=60.04)
+RIGHT: AAGACGGTGCGAGATCGAAG  (cDNA=171-190, len=20, Tm=60.18)
+GC%  : LEFT 55.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=18.40, self_end=6.56, hairpin=36.75
+RIGHT dimer/hairpin: self_any=6.39, self_end=0.00, hairpin=43.02
+PAIR  heterodimer: compl_any=0.00, compl_end=0.00
+Pair product Tm: 81.20
+Pair penalty (primer3): 0.218
+預期產物長度: 75 bp
+預期產物序列: CAAACGGCCATGGAAACCAGCTTTGCAGATGAGTGAATGAAGCGGGAGGTAAAAGCTTCGATCTCGCACCGTCTT
+跨 junction 的引子: N/A
+
+
+== Rank 100 | score=-22.493 ==
+LEFT : ATGGCTGGATGGAAGAGAGC   (cDNA=8-27, len=20, Tm=59.53)
+RIGHT: CAAAGCTGGTTTCCATGGCC  (cDNA=121-140, len=20, Tm=60.04)
+GC%  : LEFT 55.0 | RIGHT 55.0
+Junction overlap (bp): N/A (single-exon mode)
+LEFT  dimer/hairpin: self_any=0.00, self_end=0.00, hairpin=0.00
+RIGHT dimer/hairpin: self_any=6.96, self_end=2.99, hairpin=30.82
+PAIR  heterodimer: compl_any=16.02, compl_end=16.02
+Pair product Tm: 86.20
+Pair penalty (primer3): 0.510
+預期產物長度: 114 bp
+預期產物序列: ATGGCTGGATGGAAGAGAGCGTCCTTCAGTCCACTCAGGGGCGGTGCTAGGGTCGAATTAGCTGCCGACTCATTCACCCACATGCCAAGCAAACGGCCATGGAAACCAGCTTTG
+跨 junction 的引子: N/A
+

@@ -561,6 +561,101 @@ def map_template_pos_to_tx_offset(pos: int, template_tx_start: int) -> int:
     return template_tx_start + pos
 
 
+def candidate_cdna_positions(c: dict) -> Tuple[int, int, int, int]:
+    lpos = c["lpos"]
+    llen = c["llen"]
+    rpos = c["rpos"]
+    rlen = c["rlen"]
+    if c["map_mode"] == "junction":
+        eL_len = c["eL_len"]
+        eR_len = c["eR_len"]
+        eL_tx_start = c["eL_tx_start"]
+        eR_tx_start = c["eR_tx_start"]
+        left_part_len = c["left_part_len"]
+        l_tx_start = map_template_pos_to_tx(
+            lpos,
+            left_exon_len=eL_len,
+            right_exon_len=eR_len,
+            left_exon_tx_start=eL_tx_start,
+            right_exon_tx_start=eR_tx_start,
+            left_part_len=left_part_len,
+        )
+        l_tx_end = map_template_pos_to_tx(
+            lpos + llen - 1,
+            left_exon_len=eL_len,
+            right_exon_len=eR_len,
+            left_exon_tx_start=eL_tx_start,
+            right_exon_tx_start=eR_tx_start,
+            left_part_len=left_part_len,
+        )
+        r_tx_start = map_template_pos_to_tx(
+            rpos,
+            left_exon_len=eL_len,
+            right_exon_len=eR_len,
+            left_exon_tx_start=eL_tx_start,
+            right_exon_tx_start=eR_tx_start,
+            left_part_len=left_part_len,
+        )
+        r_tx_end = map_template_pos_to_tx(
+            rpos + rlen - 1,
+            left_exon_len=eL_len,
+            right_exon_len=eR_len,
+            left_exon_tx_start=eL_tx_start,
+            right_exon_tx_start=eR_tx_start,
+            left_part_len=left_part_len,
+        )
+    else:
+        template_start_tx = c.get("template_tx_start") or 0
+        l_tx_start = map_template_pos_to_tx_offset(lpos, template_start_tx)
+        l_tx_end = map_template_pos_to_tx_offset(lpos + llen - 1, template_start_tx)
+        r_tx_start = map_template_pos_to_tx_offset(rpos, template_start_tx)
+        r_tx_end = map_template_pos_to_tx_offset(rpos + rlen - 1, template_start_tx)
+    return l_tx_start + 1, l_tx_end + 1, r_tx_start + 1, r_tx_end + 1
+
+
+def plot_primers_png(candidates: List[dict], tx_len: int, out_path: str) -> None:
+    try:
+        import matplotlib.pyplot as plt
+    except Exception:
+        return
+    n = len(candidates)
+    height = max(2.5, 0.45 * n)
+    fig, ax = plt.subplots(figsize=(12, height))
+    ax.set_xlim(0, tx_len)
+    ax.set_ylim(-1, n)
+    ax.set_xlabel("cDNA position (bp)")
+    ax.set_yticks(range(n))
+    ax.set_yticklabels([f"Rank {i+1}" for i in range(n)][::-1])
+    ax.invert_yaxis()
+    for idx, c in enumerate(candidates, start=1):
+        y = idx - 1
+        l_start, l_end, r_start, r_end = candidate_cdna_positions(c)
+        ax.hlines(y, 0, tx_len, color="#dddddd", linewidth=1)
+        ax.hlines(y, l_start, l_end, color="#1f77b4", linewidth=4)
+        ax.hlines(y, r_start, r_end, color="#d62728", linewidth=4)
+    ax.set_title("Primer positions on transcript (cDNA)")
+    fig.tight_layout()
+    fig.savefig(out_path, dpi=150)
+    plt.close(fig)
+
+
+def plot_scores_png(candidates: List[dict], out_path: str) -> None:
+    try:
+        import matplotlib.pyplot as plt
+    except Exception:
+        return
+    ranks = [c.get("rank", i + 1) for i, c in enumerate(candidates)]
+    scores = [c["score"] for c in candidates]
+    fig, ax = plt.subplots(figsize=(10, 4))
+    ax.bar(ranks, scores, color="#4c78a8")
+    ax.set_xlabel("Rank")
+    ax.set_ylabel("Score")
+    ax.set_title("Candidate scores by rank")
+    fig.tight_layout()
+    fig.savefig(out_path, dpi=150)
+    plt.close(fig)
+
+
 def choose_junction_indices(n_exons: int, max_shift: int = 4) -> List[int]:
     """
     以「中間 junction」為中心，左右擴張嘗試多個 junction。
@@ -822,6 +917,7 @@ def main():
     parser.add_argument("--top", type=int, default=5, help="全局排序後輸出前幾名候選（預設 5）")
     parser.add_argument("--min-candidates-per-junction", type=int, default=3, help="每個 junction 至少保留幾組候選，少於此數則換下一個 junction")
     parser.add_argument("--out", help="輸出結果到 txt 檔案（例如 /abs/path/result.txt）")
+    parser.add_argument("--plot", action="store_true", help="Generate primer position plot (PNG) in output dir")
     parser.add_argument("--qc", action="store_true", help="Enable QC with seqkit amplicon (canonical unique)")
     parser.add_argument("--qc-ref-fasta", help="Transcriptome reference FASTA (cdna.all.fa.gz). If not set, auto-download.")
     parser.add_argument("--ensembl-release", default="current", help="Ensembl release number or 'current' (default current)")
@@ -1471,6 +1567,11 @@ def main():
         qc_path = qc_output_path(args.out, out_dir)
         with open(qc_path, "w", encoding="utf-8") as f:
             f.write("\n".join(qc_lines) + "\n")
+    if args.plot and args.out:
+        plot_path = os.path.join(out_dir, f"{os.path.basename(args.out)}.primers.png")
+        plot_primers_png(all_candidates, tx_len, plot_path)
+        score_path = os.path.join(out_dir, f"{os.path.basename(args.out)}.scores.png")
+        plot_scores_png(all_candidates, score_path)
     return
 
 if __name__ == "__main__":
