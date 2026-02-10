@@ -1,0 +1,11 @@
+*.log
+*.tmp
+.Rhistory
+.RData
+__pycache__/
+.env
+.txt
+.tsv
+.fa.gz
+.fa
+.png
