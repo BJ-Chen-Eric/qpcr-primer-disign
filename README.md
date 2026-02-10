@@ -94,18 +94,18 @@ Stage 2 (last 5 bp):
 
 ## 6. Common Options
 
-- `--gene <symbol>`
-- `--species <ensembl_species>`
-- `--sequence <DNA>`
-- `--blast`
-- `--primer3 <path>`
-- `--region <start-end>`
-- `--allow-single-exon`
-- `--qc`
-- `--qc-ref-fasta <path>`
-- `--ensembl-release <int or current>`
-- `--out <path>`
-- `--top <int>`
+- `--gene <symbol>`: Ensembl gene symbol (used with `--species`).
+- `--species <ensembl_species>`: Ensembl species name, e.g. `homo_sapiens`, `zea_mays`.
+- `--sequence <seq>`: User-provided sequence (RNA or DNA). RNA will be auto-converted U→T.
+- `--blast`: BLAST the sequence against NCBI `nt` and try to map to Ensembl.
+- `--primer3 <path>`: Path to `primer3_core`.
+- `--region <start-end>`: cDNA region (1-based, inclusive) to design within.
+- `--allow-single-exon`: Allow single-exon mode (no junction).
+- `--qc`: Enable QC with `seqkit amplicon`.
+- `--qc-ref-fasta <path>`: Transcriptome FASTA for QC (cdna.all.fa.gz).
+- `--ensembl-release <int or current>`: Ensembl release for auto-download (default `current`).
+- `--out <path>`: Output report path.
+- `--top <int>`: Number of top candidates to report.
 
 ## 7. Notes
 
