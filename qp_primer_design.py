@@ -9,6 +9,7 @@ import os
 import subprocess
 import time
 import xml.etree.ElementTree as ET
+from datetime import datetime
 from dataclasses import dataclass
 from typing import List, Tuple, Optional, Dict
 
@@ -99,10 +100,10 @@ def ensembl_cdna_url(species: str, assembly: str, division: str, release: str) -
         base = f"https://ftp.ensemblgenomes.org/pub/{div}"
         rel = "current" if release == "current" else f"release-{release}"
     file_species = _file_species_name(species)
-    filename = f"{file_species}.{assembly}.cdna.all.fa.gz"
+    filename = f"{file_species}.{assembly}.cds.all.fa.gz"
     if division in ("EnsemblVertebrates", "Ensembl"):
-        return f"{base}/{rel}/{species}/cdna/{filename}"
-    return f"{base}/{rel}/fasta/{species}/cdna/{filename}"
+        return f"{base}/{rel}/{species}/cds/{filename}"
+    return f"{base}/{rel}/fasta/{species}/cds/{filename}"
 
 
 def download_file(url: str, dest_path: str) -> None:
@@ -336,15 +337,19 @@ def pick_transcript(gene_json: dict) -> dict:
     if not txs:
         raise RuntimeError("找不到 transcripts（gene symbol 可能不對或 Ensembl 無資料）。")
 
+    canonical_id = gene_json.get("canonical_transcript")
+    if canonical_id:
+        try:
+            return ensembl_get(f"/lookup/id/{canonical_id}", params={"expand": "1"})
+        except Exception:
+            for t in txs:
+                if t.get("id") == canonical_id:
+                    return t
+
     canon = [t for t in txs if t.get("is_canonical") == 1]
     if canon:
         return canon[0]
-
-    def tx_score(t):
-        ex = t.get("Exon", [])
-        return sum(abs(e["end"] - e["start"]) + 1 for e in ex)
-
-    return sorted(txs, key=tx_score, reverse=True)[0]
+    raise RuntimeError("找不到 canonical transcript（is_canonical == 1）。")
 
 
 def exons_in_tx(tx: dict) -> List[Exon]:
@@ -368,7 +373,7 @@ def fetch_exon_seq(exon_id: str) -> str:
 
 
 def fetch_transcript_cdna(transcript_id: str) -> str:
-    j = ensembl_get(f"/sequence/id/{transcript_id}", params={"type": "cdna"})
+    j = ensembl_get(f"/sequence/id/{transcript_id}", params={"type": "cds"})
     seq = j.get("seq")
     if not seq:
         raise RuntimeError(f"transcript {transcript_id} 沒有回傳 cDNA 序列。")
@@ -397,6 +402,15 @@ def parse_region_arg(region: str, tx_len: int) -> Tuple[int, int]:
     if end > tx_len:
         raise ValueError(f"region 超出 transcript 長度（{tx_len}）")
     return start - 1, end
+
+
+def parse_bool_arg(value: str) -> bool:
+    v = value.strip().lower()
+    if v in ("1", "true", "t", "yes", "y", "on"):
+        return True
+    if v in ("0", "false", "f", "no", "n", "off"):
+        return False
+    raise argparse.ArgumentTypeError("bool 值請用 true/false")
 
 
 def build_region_template(cdna: str, start0: int, end0: int) -> Tuple[str, int]:
@@ -539,6 +553,20 @@ def primer_3p_matches_template(
     return True
 
 
+def count_occurrences(seq: str, sub: str) -> int:
+    if not seq or not sub:
+        return 0
+    count = 0
+    start = 0
+    while True:
+        idx = seq.find(sub, start)
+        if idx == -1:
+            break
+        count += 1
+        start = idx + 1
+    return count
+
+
 def map_template_pos_to_tx(
     pos: int,
     left_exon_len: int,
@@ -561,11 +589,13 @@ def map_template_pos_to_tx_offset(pos: int, template_tx_start: int) -> int:
     return template_tx_start + pos
 
 
-def candidate_cdna_positions(c: dict) -> Tuple[int, int, int, int]:
+def candidate_cdna_positions(c: dict, cdna_seq: Optional[str]) -> Tuple[int, int, int, int]:
     lpos = c["lpos"]
     llen = c["llen"]
     rpos = c["rpos"]
     rlen = c["rlen"]
+    r_start_t = rpos - rlen + 1
+    r_end_t = rpos
     if c["map_mode"] == "junction":
         eL_len = c["eL_len"]
         eR_len = c["eR_len"]
@@ -589,7 +619,7 @@ def candidate_cdna_positions(c: dict) -> Tuple[int, int, int, int]:
             left_part_len=left_part_len,
         )
         r_tx_start = map_template_pos_to_tx(
-            rpos,
+            r_start_t,
             left_exon_len=eL_len,
             right_exon_len=eR_len,
             left_exon_tx_start=eL_tx_start,
@@ -597,7 +627,7 @@ def candidate_cdna_positions(c: dict) -> Tuple[int, int, int, int]:
             left_part_len=left_part_len,
         )
         r_tx_end = map_template_pos_to_tx(
-            rpos + rlen - 1,
+            r_end_t,
             left_exon_len=eL_len,
             right_exon_len=eR_len,
             left_exon_tx_start=eL_tx_start,
@@ -608,12 +638,43 @@ def candidate_cdna_positions(c: dict) -> Tuple[int, int, int, int]:
         template_start_tx = c.get("template_tx_start") or 0
         l_tx_start = map_template_pos_to_tx_offset(lpos, template_start_tx)
         l_tx_end = map_template_pos_to_tx_offset(lpos + llen - 1, template_start_tx)
-        r_tx_start = map_template_pos_to_tx_offset(rpos, template_start_tx)
-        r_tx_end = map_template_pos_to_tx_offset(rpos + rlen - 1, template_start_tx)
+        r_tx_start = map_template_pos_to_tx_offset(r_start_t, template_start_tx)
+        r_tx_end = map_template_pos_to_tx_offset(r_end_t, template_start_tx)
+    # If we have transcript sequence, map primers by exact sequence match
+    if cdna_seq:
+        def find_best(seq: str, sub: str, expected_start: int) -> Optional[int]:
+            hits = []
+            start = 0
+            while True:
+                idx = seq.find(sub, start)
+                if idx == -1:
+                    break
+                hits.append(idx)
+                start = idx + 1
+            if not hits:
+                return None
+            return min(hits, key=lambda x: abs(x - expected_start))
+
+        l_hit = find_best(cdna_seq, c["lseq"], l_tx_start)
+        if l_hit is not None:
+            l_tx_start = l_hit
+            l_tx_end = l_hit + len(c["lseq"]) - 1
+
+        rc = revcomp(c["rseq"])
+        r_hit = find_best(cdna_seq, rc, r_tx_start)
+        if r_hit is not None:
+            r_tx_start = r_hit
+            r_tx_end = r_hit + len(rc) - 1
     return l_tx_start + 1, l_tx_end + 1, r_tx_start + 1, r_tx_end + 1
 
 
-def plot_primers_png(candidates: List[dict], tx_len: int, out_path: str) -> None:
+def plot_primers_png(
+    candidates: List[dict],
+    tx_len: int,
+    out_path: str,
+    cdna_seq: Optional[str],
+    region: Optional[Tuple[int, int]] = None,
+) -> None:
     try:
         import matplotlib.pyplot as plt
     except Exception:
@@ -621,19 +682,26 @@ def plot_primers_png(candidates: List[dict], tx_len: int, out_path: str) -> None
     n = len(candidates)
     height = max(2.5, 0.45 * n)
     fig, ax = plt.subplots(figsize=(12, height))
-    ax.set_xlim(0, tx_len)
+    if region:
+        r_start, r_end = region
+        ax.set_xlim(r_start - 1, r_end)
+    else:
+        ax.set_xlim(0, tx_len)
     ax.set_ylim(-1, n)
     ax.set_xlabel("cDNA position (bp)")
+    plot_candidates = list(reversed(candidates))
     ax.set_yticks(range(n))
-    ax.set_yticklabels([f"Rank {i+1}" for i in range(n)][::-1])
-    ax.invert_yaxis()
-    for idx, c in enumerate(candidates, start=1):
-        y = idx - 1
-        l_start, l_end, r_start, r_end = candidate_cdna_positions(c)
+    ax.set_yticklabels([f"Rank {c.get('rank', i+1)}" for i, c in enumerate(plot_candidates)])
+    for idx, c in enumerate(plot_candidates):
+        y = idx
+        l_start, l_end, r_start, r_end = candidate_cdna_positions(c, cdna_seq)
         ax.hlines(y, 0, tx_len, color="#dddddd", linewidth=1)
         ax.hlines(y, l_start, l_end, color="#1f77b4", linewidth=4)
         ax.hlines(y, r_start, r_end, color="#d62728", linewidth=4)
-    ax.set_title("Primer positions on transcript (cDNA)")
+    if region:
+        ax.set_title(f"Primer positions on transcript (cDNA) [{region[0]}-{region[1]}]")
+    else:
+        ax.set_title("Primer positions on transcript (cDNA)")
     fig.tight_layout()
     fig.savefig(out_path, dpi=150)
     plt.close(fig)
@@ -654,6 +722,48 @@ def plot_scores_png(candidates: List[dict], out_path: str) -> None:
     fig.tight_layout()
     fig.savefig(out_path, dpi=150)
     plt.close(fig)
+
+
+def format_genbank_sequence(seq: str) -> str:
+    s = seq.lower()
+    lines = []
+    for i in range(0, len(s), 60):
+        chunk = s[i : i + 60]
+        groups = " ".join(chunk[j : j + 10] for j in range(0, len(chunk), 10))
+        lines.append(f"{i+1:>9} {groups}")
+    return "\n".join(lines)
+
+
+def write_genbank(out_path: str, seq: str, left: Tuple[int, int], right: Tuple[int, int]) -> None:
+    today = datetime.now().strftime("%d-%b-%Y").upper()
+    length = len(seq)
+    left_start, left_end = left
+    right_start, right_end = right
+    gb = []
+    gb.append(f"LOCUS       Exported                 {length} bp ds-DNA     linear   UNA {today}")
+    gb.append("DEFINITION  natural linear DNA")
+    gb.append("ACCESSION   .")
+    gb.append("VERSION     .")
+    gb.append("KEYWORDS    .")
+    gb.append("SOURCE      natural DNA sequence")
+    gb.append("  ORGANISM  unspecified")
+    gb.append(f"REFERENCE   1  (bases 1 to {length})")
+    gb.append("  AUTHORS   Triple Threat")
+    gb.append("  TITLE     Direct Submission")
+    gb.append(f"  JOURNAL   Exported {datetime.now().strftime('%b %d, %Y')} from qp_primer_design.py")
+    gb.append("FEATURES             Location/Qualifiers")
+    gb.append(f"     source          1..{length}")
+    gb.append('                     /organism="unspecified"')
+    gb.append('                     /mol_type="genomic DNA"')
+    gb.append(f"     primer_bind     {left_start}..{left_end}")
+    gb.append("                     /label=Primer 1")
+    gb.append(f"     primer_bind     complement({right_start}..{right_end})")
+    gb.append("                     /label=Primer 2")
+    gb.append("ORIGIN")
+    gb.append(format_genbank_sequence(seq))
+    gb.append("//")
+    with open(out_path, "w", encoding="utf-8") as f:
+        f.write("\n".join(gb) + "\n")
 
 
 def choose_junction_indices(n_exons: int, max_shift: int = 4) -> List[int]:
@@ -679,6 +789,9 @@ def run_primer3_pairs(
     prod_min: int,
     prod_max: int,
     num_return: int,
+    primer_opt_size: int,
+    primer_min_size: int,
+    primer_max_size: int,
 ) -> Dict[str, str]:
     """
     讓 primer3 產生多組 primer pairs，回傳 key=value 字典。
@@ -689,8 +802,8 @@ SEQUENCE_TEMPLATE={template}
 PRIMER_TASK=generic
 PRIMER_PICK_LEFT_PRIMER=1
 PRIMER_PICK_RIGHT_PRIMER=1
-PRIMER_OPT_SIZE=20
-PRIMER_MIN_SIZE=18
+PRIMER_OPT_SIZE=23
+PRIMER_MIN_SIZE=21
 PRIMER_MAX_SIZE=25
 PRIMER_OPT_TM=60.0
 PRIMER_MIN_TM=57.0
@@ -786,7 +899,11 @@ def junction_overlap_bp(start: int, length: int, junction_pos: int) -> int:
 def clamp01(x: float) -> float:
     return max(0.0, min(1.0, x))
 
-def gc_penalty(gc: float, lo: float = 35.0, hi: float = 65.0) -> float:
+GC_MIN = 45.0
+GC_MAX = 60.0
+
+
+def gc_penalty(gc: float, lo: float = GC_MIN, hi: float = GC_MAX) -> float:
     """
     GC 在 [lo, hi] 內 -> 0 penalty
     超出 -> 線性懲罰（可自行調）
@@ -906,10 +1023,19 @@ def main():
     parser.add_argument("--blast", action="store_true", help="Use NCBI BLAST (nt) to resolve sequence to gene ID")
     parser.add_argument("--blast-top", type=int, default=5, help="Try top N BLAST hits for Ensembl mapping (default 5)")
     parser.add_argument("--primer3", required=True, help="primer3_core 可執行檔的絕對路徑")
+    parser.add_argument("--primer-opt-size", type=int, default=21, help="Primer optimal length (default 21)")
+    parser.add_argument("--primer-min-size", type=int, default=18, help="Primer minimum length (default 18)")
+    parser.add_argument("--primer-max-size", type=int, default=25, help="Primer maximum length (default 25)")
     parser.add_argument("--prod-min", type=int, default=70, help="產物最小長度（bp），預設 70")
     parser.add_argument("--prod-max", type=int, default=180, help="產物最大長度（bp），預設 180")
     parser.add_argument("--flank", type=int, default=150, help="junction template 每側長度（bp），預設 150（總長約 300）")
     parser.add_argument("--region", help="指定 cDNA 區段（1-based, inclusive），格式 start-end，例如 200-400")
+    parser.add_argument(
+        "--last-half",
+        type=parse_bool_arg,
+        default=True,
+        help="Force primer design within the last 50% of the transcript (true/false, default true)",
+    )
     parser.add_argument("--allow-single-exon", action="store_true", help="允許單 exon transcript（無 junction）設計")
     parser.add_argument("--num-return", type=int, default=50, help="primer3 回傳幾組 pair，預設 50")
     parser.add_argument("--max-junction-shift", type=int, default=4, help="以中間 junction 為中心，左右最多換幾個 junction，預設 4")
@@ -918,8 +1044,9 @@ def main():
     parser.add_argument("--min-candidates-per-junction", type=int, default=3, help="每個 junction 至少保留幾組候選，少於此數則換下一個 junction")
     parser.add_argument("--out", help="輸出結果到 txt 檔案（例如 /abs/path/result.txt）")
     parser.add_argument("--plot", action="store_true", help="Generate primer position plot (PNG) in output dir")
+    parser.add_argument("--gb", action="store_true", help="Write GenBank file for Rank 1 (same directory as --out)")
     parser.add_argument("--qc", action="store_true", help="Enable QC with seqkit amplicon (canonical unique)")
-    parser.add_argument("--qc-ref-fasta", help="Transcriptome reference FASTA (cdna.all.fa.gz). If not set, auto-download.")
+    parser.add_argument("--qc-ref-fasta", help="Transcriptome reference FASTA (cds.all.fa.gz). If not set, auto-download.")
     parser.add_argument("--ensembl-release", default="current", help="Ensembl release number or 'current' (default current)")
     parser.add_argument(
         "--span",
@@ -1052,6 +1179,15 @@ def main():
     region_end0 = None
     template_tx_start = None
     region_template = None
+    user_region = args.region
+    auto_last_half = False
+    if args.last_half and not user_region:
+        start1 = (tx_len // 2) + 1
+        args.region = f"{start1}-{tx_len}"
+        auto_last_half = True
+    elif args.last_half and user_region:
+        print("Info: --region provided; ignoring --last-half.", file=os.sys.stderr)
+
     if args.region:
         region_start0, region_end0 = parse_region_arg(args.region, tx_len)
         region_template, template_tx_start = build_region_template(cdna_seq, region_start0, region_end0)
@@ -1072,6 +1208,9 @@ def main():
         junction_tx_pos = eL_tx_start + eL_len
 
         if args.region:
+            if region_start0 is not None and region_end0 is not None:
+                if not (region_start0 < junction_tx_pos < region_end0):
+                    continue
             template = region_template
             jpos = junction_tx_pos - region_start0
             left_part_len = None
@@ -1091,6 +1230,9 @@ def main():
             prod_min=args.prod_min,
             prod_max=args.prod_max,
             num_return=args.num_return,
+            primer_opt_size=args.primer_opt_size,
+            primer_min_size=args.primer_min_size,
+            primer_max_size=args.primer_max_size,
         )
         junction_candidates = []
 
@@ -1100,6 +1242,10 @@ def main():
             if not parsed:
                 continue
             lseq, lpos, llen, ltm, rseq, rpos, rlen, rtm, ptm, ppen, psz = parsed
+            lgc = gc_percent(lseq)
+            rgc = gc_percent(rseq)
+            if not (GC_MIN <= lgc <= GC_MAX and GC_MIN <= rgc <= GC_MAX):
+                continue
 
             # 3' end filtering
             if not primer_3p_rules_ok(lseq) or not primer_3p_rules_ok(rseq):
@@ -1192,10 +1338,82 @@ def main():
             })
 
         if len(junction_candidates) < int(args.min_candidates_per_junction):
-            last_err = (
-                f"此 junction（{eL.exon_id}->{eR.exon_id}）候選不足"
-                f"（{len(junction_candidates)} < {args.min_candidates_per_junction}）。"
-            )
+            # fallback: relax span/overlap constraints
+            relaxed_candidates = []
+            for i in range(args.num_return):
+                parsed = parse_pair(kv, i)
+                if not parsed:
+                    continue
+                lseq, lpos, llen, ltm, rseq, rpos, rlen, rtm, ptm, ppen, psz = parsed
+                lgc = gc_percent(lseq)
+                rgc = gc_percent(rseq)
+                if not (GC_MIN <= lgc <= GC_MAX and GC_MIN <= rgc <= GC_MAX):
+                    continue
+
+                # 3' end filtering
+                if not primer_3p_rules_ok(lseq) or not primer_3p_rules_ok(rseq):
+                    continue
+                if not cross_dimer_3p_ok(lseq, rseq):
+                    continue
+                if not primer_3p_matches_template(template, lseq, lpos, rseq, rpos):
+                    continue
+
+                l_span = spans_junction(lpos, llen, jpos)
+                r_span = spans_junction(rpos, rlen, jpos)
+                l_ov = junction_overlap_bp(lpos, llen, jpos) if l_span else 0
+                r_ov = junction_overlap_bp(rpos, rlen, jpos) if r_span else 0
+                if l_span and r_span:
+                    which = "LEFT" if l_ov >= r_ov else "RIGHT"
+                else:
+                    which = "LEFT" if l_span else "RIGHT"
+
+                score, breakdown = score_pair(
+                    kv=kv, i=i,
+                    lseq=lseq, lpos=lpos, llen=llen, ltm=ltm,
+                    rseq=rseq, rpos=rpos, rlen=rlen, rtm=rtm,
+                    pair_tm=ptm, product_size=psz,
+                    junction_pos=jpos,
+                    opt_tm=60.0,
+                    opt_size=args.opt_amplicon,
+                )
+
+                relaxed_candidates.append({
+                    "i": i,
+                    "score": score,
+                    "which": which,
+                    "mode": "junction",
+                    "lseq": lseq, "lpos": lpos, "llen": llen, "ltm": ltm, "l_ov": l_ov,
+                    "rseq": rseq, "rpos": rpos, "rlen": rlen, "rtm": rtm, "r_ov": r_ov,
+                    "ptm": ptm, "ppen": ppen, "psz": psz,
+                    "breakdown": breakdown,
+                    "kv": kv,
+                    "template": template,
+                    "jpos": jpos,
+                    "left_part_len": left_part_len,
+                    "map_mode": map_mode,
+                    "template_tx_start": template_start_tx,
+                    "tx_id": tx_id,
+                    "tx_version": tx_version,
+                    "eL_id": eL.exon_id,
+                    "eR_id": eR.exon_id,
+                    "eL_num": eL_num,
+                    "eR_num": eR_num,
+                    "total_junctions": total_junctions,
+                    "tx_len": tx_len,
+                    "junction_tx_pos": junction_tx_pos,
+                    "eL_len": eL_len,
+                    "eR_len": eR_len,
+                    "eL_tx_start": eL_tx_start,
+                    "eR_tx_start": eR_tx_start,
+                })
+
+            if len(relaxed_candidates) < int(args.min_candidates_per_junction):
+                last_err = (
+                    f"此 junction（{eL.exon_id}->{eR.exon_id}）候選不足"
+                    f"（{len(relaxed_candidates)} < {args.min_candidates_per_junction}）。"
+                )
+                continue
+            all_candidates.extend(relaxed_candidates)
             continue
 
         all_candidates.extend(junction_candidates)
@@ -1216,6 +1434,9 @@ def main():
             prod_min=args.prod_min,
             prod_max=args.prod_max,
             num_return=args.num_return,
+            primer_opt_size=args.primer_opt_size,
+            primer_min_size=args.primer_min_size,
+            primer_max_size=args.primer_max_size,
         )
 
         single_candidates = []
@@ -1224,6 +1445,10 @@ def main():
             if not parsed:
                 continue
             lseq, lpos, llen, ltm, rseq, rpos, rlen, rtm, ptm, ppen, psz = parsed
+            lgc = gc_percent(lseq)
+            rgc = gc_percent(rseq)
+            if not (GC_MIN <= lgc <= GC_MAX and GC_MIN <= rgc <= GC_MAX):
+                continue
 
             score, breakdown = score_pair(
                 kv=kv, i=i,
@@ -1343,7 +1568,10 @@ def main():
         lines.append("Exons in transcript: 1")
         lines.append(f"Transcript 長度: {c0['tx_len']} bp")
     if args.region:
-        lines.append(f"Region (cDNA, 1-based): {args.region}")
+        if auto_last_half:
+            lines.append(f"Region (cDNA, 1-based): {args.region} (auto: last 50%)")
+        else:
+            lines.append(f"Region (cDNA, 1-based): {args.region}")
     if qc_enabled:
         lines.append("QC: enabled (policy=canonical_unique)")
         if qc_ref_fasta:
@@ -1392,62 +1620,42 @@ def main():
         if rank > 1:
             lines.append("")
         lines.append(f"== Rank {rank} | score={best.score:.3f} ==")
-        if c["map_mode"] == "junction":
-            eL_len = c["eL_len"]
-            eR_len = c["eR_len"]
-            eL_tx_start = c["eL_tx_start"]
-            eR_tx_start = c["eR_tx_start"]
-            left_part_len = c["left_part_len"]
-            l_tx_start = map_template_pos_to_tx(
-                best.left_pos,
-                left_exon_len=eL_len,
-                right_exon_len=eR_len,
-                left_exon_tx_start=eL_tx_start,
-                right_exon_tx_start=eR_tx_start,
-                left_part_len=left_part_len,
-            )
-            l_tx_end = map_template_pos_to_tx(
-                best.left_pos + best.left_len - 1,
-                left_exon_len=eL_len,
-                right_exon_len=eR_len,
-                left_exon_tx_start=eL_tx_start,
-                right_exon_tx_start=eR_tx_start,
-                left_part_len=left_part_len,
-            )
-            r_tx_start = map_template_pos_to_tx(
-                best.right_pos,
-                left_exon_len=eL_len,
-                right_exon_len=eR_len,
-                left_exon_tx_start=eL_tx_start,
-                right_exon_tx_start=eR_tx_start,
-                left_part_len=left_part_len,
-            )
-            r_tx_end = map_template_pos_to_tx(
-                best.right_pos + best.right_len - 1,
-                left_exon_len=eL_len,
-                right_exon_len=eR_len,
-                left_exon_tx_start=eL_tx_start,
-                right_exon_tx_start=eR_tx_start,
-                left_part_len=left_part_len,
-            )
-        else:
-            template_start_tx = c["template_tx_start"] or 0
-            l_tx_start = map_template_pos_to_tx_offset(best.left_pos, template_start_tx)
-            l_tx_end = map_template_pos_to_tx_offset(best.left_pos + best.left_len - 1, template_start_tx)
-            r_tx_start = map_template_pos_to_tx_offset(best.right_pos, template_start_tx)
-            r_tx_end = map_template_pos_to_tx_offset(best.right_pos + best.right_len - 1, template_start_tx)
+        l_tx_start, l_tx_end, r_tx_start, r_tx_end = candidate_cdna_positions(c, cdna_seq)
+        # Keep biological meaning: LEFT = forward (+), RIGHT = reverse (-)
+        disp_left = {
+            "seq": best.left_primer,
+            "len": best.left_len,
+            "tm": best.left_tm,
+            "gc": gc_percent(best.left_primer),
+            "self_any": None,
+            "self_end": None,
+            "hairpin": None,
+            "ov": best.junction_overlap_left,
+        }
+        disp_right = {
+            "seq": best.right_primer,
+            "len": best.right_len,
+            "tm": best.right_tm,
+            "gc": gc_percent(best.right_primer),
+            "self_any": None,
+            "self_end": None,
+            "hairpin": None,
+            "ov": best.junction_overlap_right,
+        }
+        disp_l_tx_start, disp_l_tx_end = l_tx_start, l_tx_end
+        disp_r_tx_start, disp_r_tx_end = r_tx_start, r_tx_end
+        disp_which = best.which_spans
+        tm_shift = 8.0
         lines.append(
-            f"LEFT : {best.left_primer}   (cDNA={l_tx_start+1}-{l_tx_end+1}, len={best.left_len}, Tm={best.left_tm:.2f})"
+            f"LEFT (+): {disp_left['seq']}   (cDNA={disp_l_tx_start}-{disp_l_tx_end}, len={disp_left['len']}, Tm={disp_left['tm'] + tm_shift:.2f})"
         )
         lines.append(
-            f"RIGHT: {best.right_primer}  (cDNA={r_tx_start+1}-{r_tx_end+1}, len={best.right_len}, Tm={best.right_tm:.2f})"
+            f"RIGHT(-): {disp_right['seq']}  (cDNA={disp_r_tx_start}-{disp_r_tx_end}, len={disp_right['len']}, Tm={disp_right['tm'] + tm_shift:.2f})"
         )
-        l_gc = gc_percent(best.left_primer)
-        r_gc = gc_percent(best.right_primer)
-        lines.append(f"GC%  : LEFT {l_gc:.1f} | RIGHT {r_gc:.1f}")
+        lines.append(f"GC%  : LEFT {disp_left['gc']:.1f} | RIGHT {disp_right['gc']:.1f}")
         if c["mode"] == "junction":
             lines.append(
-                f"Junction overlap (bp): LEFT {best.junction_overlap_left} | RIGHT {best.junction_overlap_right}  (min={args.min_junction_overlap}, rule={args.span})"
+                f"Junction overlap (bp): LEFT {disp_left['ov']} | RIGHT {disp_right['ov']}  (min={args.min_junction_overlap}, rule={args.span})"
             )
         else:
             lines.append("Junction overlap (bp): N/A (single-exon mode)")
@@ -1493,28 +1701,30 @@ def main():
         )
 
         if any([l_self_any, l_self_end, l_hairpin, r_self_any, r_self_end, r_hairpin, p_compl_any, p_compl_end]):
-            if l_self_any or l_self_end or l_hairpin:
+            disp_left["self_any"], disp_left["self_end"], disp_left["hairpin"] = l_self_any, l_self_end, l_hairpin
+            disp_right["self_any"], disp_right["self_end"], disp_right["hairpin"] = r_self_any, r_self_end, r_hairpin
+            if disp_left["self_any"] or disp_left["self_end"] or disp_left["hairpin"]:
                 lines.append(
                     "LEFT  dimer/hairpin: "
                     + ", ".join(
                         x
                         for x in [
-                            f"self_any={l_self_any}" if l_self_any else "",
-                            f"self_end={l_self_end}" if l_self_end else "",
-                            f"hairpin={l_hairpin}" if l_hairpin else "",
+                            f"self_any={disp_left['self_any']}" if disp_left["self_any"] else "",
+                            f"self_end={disp_left['self_end']}" if disp_left["self_end"] else "",
+                            f"hairpin={disp_left['hairpin']}" if disp_left["hairpin"] else "",
                         ]
                         if x
                     )
                 )
-            if r_self_any or r_self_end or r_hairpin:
+            if disp_right["self_any"] or disp_right["self_end"] or disp_right["hairpin"]:
                 lines.append(
                     "RIGHT dimer/hairpin: "
                     + ", ".join(
                         x
                         for x in [
-                            f"self_any={r_self_any}" if r_self_any else "",
-                            f"self_end={r_self_end}" if r_self_end else "",
-                            f"hairpin={r_hairpin}" if r_hairpin else "",
+                            f"self_any={disp_right['self_any']}" if disp_right["self_any"] else "",
+                            f"self_end={disp_right['self_end']}" if disp_right["self_end"] else "",
+                            f"hairpin={disp_right['hairpin']}" if disp_right["hairpin"] else "",
                         ]
                         if x
                     )
@@ -1533,17 +1743,20 @@ def main():
                 )
 
         if best.pair_tm is not None:
-            lines.append(f"Pair product Tm: {best.pair_tm:.2f}")
+            lines.append(f"Pair product Tm: {best.pair_tm + tm_shift:.2f}")
         if best.pair_penalty is not None:
             lines.append(f"Pair penalty (primer3): {best.pair_penalty:.3f}")
         lines.append(f"預期產物長度: {best.product_size} bp")
+        prod_start = min(l_tx_start, r_tx_start)
+        prod_end = max(l_tx_end, r_tx_end)
+        lines.append(f"預期產物區間: {prod_start}-{prod_end}")
         amp_start = best.left_pos
         amp_end = best.right_pos + 1
         if 0 <= amp_start < amp_end <= len(best.template):
             amplicon = best.template[amp_start:amp_end]
             lines.append(f"預期產物序列: {amplicon}")
         if c["mode"] == "junction":
-            lines.append(f"跨 junction 的引子: {best.which_spans}")
+            lines.append(f"跨 junction 的引子: {disp_which}")
         else:
             lines.append("跨 junction 的引子: N/A")
         lines.append("")
@@ -1558,7 +1771,14 @@ def main():
             lines.append(marker)
 
     output = "\n".join(lines)
-    print(output)
+    # Print only header + Rank 1 to terminal
+    try:
+        idx1 = lines.index(next(l for l in lines if l.startswith("== Rank 1")))
+        idx2 = next((i for i, l in enumerate(lines) if l.startswith("== Rank 2")), len(lines))
+        summary = "\n".join(lines[:idx1] + lines[idx1:idx2])
+    except StopIteration:
+        summary = output
+    print(summary)
 
     if args.out:
         with open(args.out, "w", encoding="utf-8") as f:
@@ -1569,9 +1789,17 @@ def main():
             f.write("\n".join(qc_lines) + "\n")
     if args.plot and args.out:
         plot_path = os.path.join(out_dir, f"{os.path.basename(args.out)}.primers.png")
-        plot_primers_png(all_candidates, tx_len, plot_path)
+        plot_region = None
+        if args.region and region_start0 is not None and region_end0 is not None:
+            plot_region = (region_start0 + 1, region_end0)
+        plot_primers_png(topn, tx_len, plot_path, cdna_seq, plot_region)
         score_path = os.path.join(out_dir, f"{os.path.basename(args.out)}.scores.png")
-        plot_scores_png(all_candidates, score_path)
+        plot_scores_png(topn, score_path)
+    if args.gb and args.out:
+        top1 = topn[0]
+        l_start, l_end, r_start, r_end = candidate_cdna_positions(top1, cdna_seq)
+        gb_path = os.path.splitext(args.out)[0] + ".gb"
+        write_genbank(gb_path, cdna_seq, (l_start, l_end), (r_start, r_end))
     return
 
 if __name__ == "__main__":
